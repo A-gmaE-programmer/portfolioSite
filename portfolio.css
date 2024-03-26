@@ -1,0 +1,64 @@
+body {
+  font-size: 1.5rem/* 24px */;
+  line-height: 2rem/* 32px */;
+  text-align: center;
+}
+
+header {
+  z-index: 20;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: black;
+  white-space: nowrap;
+}
+
+h1 {
+  font-size: 4rem/* 64px */;
+  font-weight: 400;
+  line-height: 1;
+  margin: 4rem;
+}
+
+button {
+  font-size: inherit;
+  line-height: 0.8;
+  font-weight: inherit;
+
+  appearance: button;
+  background: white;
+  background-image: none;
+  color: inherit;
+  border: 2px solid #32a1ce;
+
+  margin: 0px;
+  padding: 5px;
+}
+
+button:hover {
+  background: #EEE;
+}
+
+button:active {
+  border: 2px inset #EEE;
+}
+
+.header-element {
+ height: 3.5rem;
+}
+
+.row-of-items {
+  display: table-column;
+  box-sizing: border-box;
+  table-layout: fixed;
+}
+
+.pad-left {
+  padding-left: 16px;
+}
+
+.custom-font {
+  font-family: sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: normal;
+}
