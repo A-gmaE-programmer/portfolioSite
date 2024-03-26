@@ -1,33 +1,80 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Portfolio </title>
-    <link rel="stylesheet" href="portfolio.css">
-  </head>
-  <body class="custom-font">
-    <header>
-        <ol class="nav-list">
-          <li><h3 id="nav-header">Navigation</h3></li>
-          <li class="nav-li"><a class="a-nav" href="#">Top</a></li>
-          <li class="nav-li"><a class="a-nav" href="#">Projects</a></li>
-          <li class="nav-li"><a class="a-nav" href="#">Achievements</a></li>
-          <li class="nav-li"><a class="a-nav" href="#">Languages</a></li>
-          <li class="nav-li"><a class="a-nav" href="#">DevOps / Tools</a></li>
-          <li class="nav-li"><a class="a-nav" href="#">JC DSA specific</a></li>
-        </ol>
-        <!-- <div class="row-of-items pad-left"> -->
-        <!--   <div class="header-element" -->
-        <!-- </div> -->
-    </header>
-    <main>
-      <h1 class="big-heading">Hello there!</h1>
-      <h3 class="big-heading">Thanks for coming</h3>
-      <h1 class="big-heading" style="font-size: 4rem"> E-Portfolio of<br> Kevin Langner </h1>
-      <button> Test </button>
-      <div style="height: 20000px;"></div>
-    </main>
-  </body>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Portfolio </title>
+	<link rel="stylesheet" href="portfolio.css">
+	</head>
+	<body class="custom-font">
+	<div id="cover">
+		<div>
+			<h1 class="big-heading">Hello there!</h1>
+			<h3 class="big-heading">Thanks for coming</h3>
+			<h1 class="big-heading" style="font-size: 4rem"> E-Portfolio of<br>
+				Kevin Langner </h1>
+		</div>
+		<img src="https://interactive-examples.mdn.mozilla.net/media/examples/lizard.png">
+	</div>
+		
+	<header>
+		<ol class="nav-list">
+			<li><h3 id="nav-header">Navigation</h3></li>
+			<li class="nav-li"><a class="a-nav" href="#">Top</a></li>
+			<li class="nav-li"><a class="a-nav" href="#projects">Projects</a></li>
+			<li class="nav-li"><a class="a-nav" href="#achievements">Achievements</a></li>
+			<li class="nav-li"><a class="a-nav" href="#languages">Languages</a></li>
+			<li class="nav-li"><a class="a-nav" href="#devops">DevOps / Tools</a></li>
+			<li class="nav-li"><a class="a-nav" href="#jcdsa">JC DSA specific</a></li>
+		</ol>
+		<!-- <div class="row-of-items pad-left"> -->
+		<!--   <div class="header-element" -->
+		<!-- </div> -->
+	</header>
+	<main>
+		<button> Test </button>
+		<div id="projects">
+			<h5>Projects</h5>
+			<div class="cardcontainer">
+				<div>
+					<h6>Query System</h6>
+					<p>This project was originally built for the ACSBR Science
+						Department to inform students of their shifts, with refernce
+						to their name. Over the years, I have added Sign In With Google
+						and password hashing. However, with MOE's allEars system which
+						can also transmit personalised information, my school did not 
+						use it further. </p>
+					</p>
+					<img>
+				</div>
+				<div>
+					<h6>Homework Lister</h6>
+					<p>Originally a Secondary One project to server my class, it was
+						my first exposure to web programming and the Google APIs. However,
+						due to my school removing the students.acsbr.org domain, I have misplaced
+						the file. However, I would enjoy having a chat about it!
+					</p>
+					<img>
+				</div>
+			</div>
+			
+		</div>
+		<div id="achievements">
+
+		</div>
+		<div id="languages">
+
+		</div>
+		<div id="devops">
+
+		</div>
+		<div id="jcdsa">
+
+		</div>
+		<div style="height: 20000px;"></div>
+		</div>
+
+	</main>
+	</body>
 </html>
