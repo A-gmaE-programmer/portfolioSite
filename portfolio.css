@@ -4,18 +4,28 @@ body {
   text-align: center;
 }
 
+/* main {} */
+
 header {
   z-index: 20;
-  width: 100%;
+  width: 20%;
   position: fixed;
-  top: 0px;
-  left: 0px;
-  background: black;
+  top: 100px;
+  left: 100px;
   white-space: nowrap;
+  overflow-x: hidden;
+  border-radius: 25px;
+
+  transition: background 1s;
 }
 
-h1 {
-  font-size: 4rem/* 64px */;
+header:hover {
+  background: rgba(50, 161, 206, 0.4);
+}
+
+.big-heading {
+  font-size: 250%;
+  /* font-size: 4rem; */
   font-weight: 400;
   line-height: 1;
   margin: 4rem;
@@ -30,7 +40,11 @@ button {
   background: white;
   background-image: none;
   color: inherit;
-  border: 2px solid #32a1ce;
+  border: 0px solid #32a1ce;
+  border-radius: 0.5rem;
+
+  width: 8rem;
+  height: 2rem;
 
   margin: 0px;
   padding: 5px;
@@ -44,15 +58,41 @@ button:active {
   border: 2px inset #EEE;
 }
 
+.nav-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 24px;
+  text-align: left;
+}
+
+.a-nav {
+  color: #3271e7;
+  text-decoration: inherit;
+  font-size: inherit;
+  transition: font-size 0.2s;
+}
+
+.a-nav:hover {
+  color: #1858cd;
+  cursor: pointer;
+  font-size: 150%;
+}
+
+#nav-header {
+  color: #1858cd;
+}
+
 .header-element {
  height: 3.5rem;
 }
 
+/*
 .row-of-items {
   display: table-column;
   box-sizing: border-box;
   table-layout: fixed;
 }
+*/
 
 .pad-left {
   padding-left: 16px;
