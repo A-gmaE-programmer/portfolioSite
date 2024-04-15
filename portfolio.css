@@ -12,6 +12,11 @@ body.lightmode *:not(.img) {
   display: none;
 }
 
+.visible-black-text {
+  text-shadow: 0px 0px 6px white;
+  color: #111;
+}
+
 .big-heading {
   font-size: 250%;
   /* font-size: 4rem; */
@@ -120,6 +125,8 @@ body {
   font-size: 1.5rem/* 24px */;
   line-height: 2rem/* 32px */;
   margin: 0;
+  background-color: #222;
+  color: black;
 }
 
 h6, span.bigger {
@@ -131,11 +138,13 @@ h6, span.bigger {
 
 /* --- splash cover --- */
 #cover {
-  height: 95vh;
+  height: 100vh;
   width: 100vw;
   max-width: 100%; /*if it works it works*/
-  background-color: #eee;
+  background-color: #000;
   text-align: center;
+  background-image: url("img/planet2.png");
+  background-size: cover;
 }
 
 #cover > div {
@@ -239,4 +248,9 @@ main {
 
 @media scrren and (max-width: 700px) {
   /* mobile. navbar should be on top */
+}
+
+/* Scroll Snap */
+.snap-start {
+ scroll-snap-align: start;
 }
