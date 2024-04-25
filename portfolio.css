@@ -12,9 +12,25 @@ body.lightmode *:not(.img) {
   display: none;
 }
 
-.visible-black-text {
-  text-shadow: 0px 0px 6px white;
-  color: #111;
+.cover-text {
+  text-shadow: 0px 0px 8px black;
+  color: #FFF;
+}
+
+.cover-text > p {
+  text-shadow: 0px 0px 8 white;
+  display: inline;
+  font-family: 'Protest Revolution';
+  font-style: italic;
+  margin: 1rem;
+  /* color: Crimson; */
+}
+
+#cover-headings {
+  left: calc(-50%);
+  transform: translate(50%, 0);
+  position: relative;
+  text-align: left;
 }
 
 .big-heading {
@@ -57,7 +73,7 @@ button:active {
 }
 
 .custom-font {
-  font-family: sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "JetBrains Mono", sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: normal;
 }
 
@@ -120,6 +136,34 @@ div.sideright {
   object-position: bottom;
 }
 
+/* scroll hints */
+.scroll-hint {
+  position: absolute;
+  top: 95vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10vh;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.scroll-hint:hover {
+  transform: translate(-50%, -50%);
+}
+
+.scroll-hint:hover>div {
+  background: rgba(255, 255, 255, 0.5)
+}
+
+.scroll-hint>div {
+  height: 1vh;
+  margin-top: 1vh;
+  border-radius: 5vh;
+  background: #FFF;
+
+  transition: background 0.3s;
+}
+
 
 
 /* --- applies to entire document --- */
@@ -131,7 +175,9 @@ body {
     /* 32px */
   ;
   margin: 0;
-  background-color: #222;
+  /* background-color: #000; */
+  /* background-color: #1b042b; */
+  background-color: #150323;
   color: black;
 }
 
@@ -149,9 +195,11 @@ span.bigger {
   width: 100vw;
   max-width: 100%;
   /*if it works it works*/
-  background-color: #000;
   text-align: center;
   background-image: url("img/planet2.png");
+  background-blend-mode: hard-light;
+  background-color: #666;
+  /* background-color: rgba(127, 127, 127, 1); */
   background-size: cover;
 }
 
@@ -201,6 +249,7 @@ span.bigger {
     width: 20%;
     white-space: nowrap;
     border-radius: 25px;
+    position: relative;
   }
 
   .nav-list>li {
@@ -209,13 +258,46 @@ span.bigger {
 
   .nav-li:hover {
     padding-left: 35px;
-    border-left: 5px solid blue;
+    /* border-left: 5px solid blue; */
   }
+
+  .nav-li {
+    position: relative;
+  }
+
+  .nav-li:hover::before {
+    position: absolute;
+    content: '';
+    width: 0.7rem;
+    height: 100%;
+    left: 0rem;
+    /* backdrop-filter: blur(20px); */
+    /* mask-image: linear-gradient(0.25turn, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); */
+    z-index: 18;
+    /* filter: brightness(12); */
+    filter: blur(10px);
+    clip-path: view-box;
+    background: red;
+  }
+
 }
 
 
-.nav-list:hover {
-  background: rgba(50, 161, 206, 0.4);
+/* .nav-list:hover { */
+  /* background: rgba(50, 161, 206, 0.4); */
+/* } */
+
+.nav-list::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backdrop-filter: blur(60px);
+  /* border-radius: 25px; */
+  filter: brightness(12) blur(7px);
+  /* clip-path: inset(0% 100% 0% 100% round 10px); */
+  clip-path: polygon(evenodd, 0 0, 100% 0, 100% 100%, 0 100%, 0 0, 0.7rem 0.7rem, calc(100% - 0.7rem) 0.7rem, calc(100% - 0.7rem) calc(100% - 0.7rem), 0.7rem calc(100% - 0.7rem), 0.7rem 0.7rem);
+  z-index: 30;
 }
 
 .a-nav {
@@ -249,9 +331,17 @@ span.bigger {
 
 
 /* Main Page */
+.section {
+  position: relative;
+  left: 200px;
+  margin: auto;
+}
+
+
 main {
   position: relative;
   left: 100px;
+  top: -1.5rem;
   width: min(900px, calc(100vw - 200px));
   margin: auto;
 }
@@ -275,4 +365,67 @@ main {
 /* Scroll Snap */
 .snap-start {
   scroll-snap-align: start;
+}
+
+.scroll-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  scroll-behavior: smooth !important;
+  /* scroll-behavior: auto; */
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-container > * {
+  /* Dark magic smooth scroll workaround */
+  transition: translate 0.5s ease-in-out;
+}
+
+/* Slider text */
+.slider {
+  position: relative;
+  width: max-content;
+  /* overflow: hidden; */
+  text-overflow: clip;
+}
+
+.slider > *:not(.slider-div) {
+  animation: text-reveal .3s .5s linear both;
+}
+
+.slider > .slider-div {
+  position: absolute;
+  top: 0px;
+  left: 4rem;
+  width: calc(100% - 8rem);
+  height: 106%;
+  animation: slider-reveal 1s ease-in-out forwards;
+}
+
+.slider-hidden {
+  background: #FFF;
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slider-reveal {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: calc(100% - 8rem);
+    left: 4rem
+  }
+  100% {
+    width: 0px;
+    left: calc(100% + 4rem);
+  }
 }
