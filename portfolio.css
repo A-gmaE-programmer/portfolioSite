@@ -81,6 +81,29 @@ button {
   padding: 5px;
 }
 
+div.openbutton {
+  background: cyan;
+  border-radius: 5px;
+  padding: 5px 20px 5px 5px;
+  display: inline-block
+}
+
+div.openbutton::after {
+  content: "";
+  /* IMPORTANT */
+
+  background-image: url('data:image/svg+xml,%3Csvg width%3D"32" height%3D"32" version%3D"1.1" viewBox%3D"0 0 6.4 6.4" xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%3E%0A %3Cg stroke%3D"%23000" stroke-width%3D".2"%3E%0A%20 %3Cpath d%3D"m5.6 5.3v-3.4c0-0.84-0.27-1.1-1.1-1.1h-3.4" fill%3D"%23fff0"%2F%3E%0A%20 %3Cpath d%3D"m5.3 1.1-5.2 5.2"%2F%3E%0A %3C%2Fg%3E%0A%3C%2Fsvg%3E%0A');
+  background-repeat: no-repeat;
+  padding-right: calc(1.5em + 0.75rem);
+  background-position: center right calc(0.375em + 0.1875rem);
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+div.openbutton:hover {
+  cursor: pointer;
+  background-color: #ddd;
+}
+
 button:hover {
   background: #EEE;
 }
@@ -245,6 +268,10 @@ h1, h2, h3, h4, h5, h6 {
   header {
     float: top;
   }
+
+  li.nav-li {
+    display: inline-block;
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -318,6 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .a-nav:hover {
   color: var(--dark-blue);
+  cursor: pointer;
 }
 
 button.a-nav {

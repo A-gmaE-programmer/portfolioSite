@@ -105,3 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 })
+
+function init() {
+    // where ansel puts all his addEventListeners
+    // *if any (otherwise OCD)
+}
