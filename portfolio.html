@@ -32,20 +32,21 @@
           </div>
 		  	</div>
 		  	<!-- <img src="https://interactive-examples.mdn.mozilla.net/media/examples/lizard.png"> -->
-        <div class="scroll-hint" onclick="smoothTo(document.querySelector('main').getBoundingClientRect().y)">
+        <div class="scroll-hint" onclick="smoothTo('#projects');window.target = 'projects'">
           <div></div>
           <div></div>
         </div>
 		  </div>
 
 		  <header>
+        <div id="nav-sep"></div>
 		  	<ol class="nav-list">
 		  		<li><h3 id="nav-header">Navigation</h3></li>
-		  		<li class="nav-li"><a class="a-nav" href="#">Top</a></li>
+		  		<li class="nav-li"><a class="a-nav" href="#cover">Top</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#projects">Projects</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#achievements">Achievements</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#languages">Languages</a></li>
-		  		<li class="nav-li"><a class="a-nav" href="#devops">DevOps / Tools</a></li>
+		  		<li class="nav-li"><a class="a-nav" href="#vim">Vim & Linux</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#jcdsa">JC DSA specific</a></li>
 		  	</ol>
 		  	<!-- <div class="row-of-items pad-left"> -->
@@ -53,40 +54,63 @@
 		  	<!-- </div> -->
 		  </header>
 
-      <div id="projects" class="snap-start section">
-		  	<h5>Projects</h5>
-		  	<div class="cardcontainer">
-		  		<div>
-		  			<h6>Query System</h6>
-		  			<p>This project was originally built for the ACSBR Science
-		  				Department to inform students of their shifts, with refernce
-		  				to their name. Over the years, I have added Sign In With Google
-		  				and password hashing. However, with MOE's allEars system which
-		  				can also transmit personalised information, my school did not 
-		  				use it further. </p>
-		  			</p>
-		  			<img>
-		  		</div>
-		  		<div>
-		  			<h6>Homework Lister</h6>
-		  			<p>Originally a Secondary One project to server my class, it was
-		  				my first exposure to web programming and the Google APIs. However,
-		  				due to my school removing the students.acsbr.org domain, I have misplaced
-		  				the file. However, I would enjoy having a chat about it!
-		  			</p>
-		  			<img>
-		  		</div>
-		  	</div>
+      <div id="projects" class="snap-start">
+        <div class="section">
+		  	  <h5>Projects</h5>
+          <div class="overflow-container">
+		  	    <div class="cardcontainer">
+		  	    	<div>
+		  	    		<h6>Query System</h6>
+		  	    		<p>
+                  This project was originally built for the ACSBR Science
+		  	    			Department to inform students of their shifts, with refernce
+		  	    			to their name. Over the years, I have added Sign In With Google
+		  	    			and password hashing. However, with MOE's allEars system which
+		  	    			can also transmit personalised information, my school did not 
+		  	    			use it further. </p>
+		  	    		</p>
+		  	    		<img>
+		  	    	</div>
+		  	    	<div>
+		  	    		<h6>Homework Lister</h6>
+		  	    		<p>
+                  Originally a Secondary One project to server my class, it was
+		  	    			my first exposure to web programming and the Google APIs. However,
+		  	    			due to my school removing the students.acsbr.org domain, I have misplaced
+		  	    			the file. However, I would enjoy having a chat about it!
+		  	    		</p>
+		  	    	</div>
+              <div>
+                <h6>Example Card</h6>
+                <p>
+                  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+                </p>
+              </div>
+              <div>
+                <h6>Example Card 2</h6>
+                <p>
+                  Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+                </p>
+              </div>
+		  	    </div>
+          </div>
+        </div>
 		  </div>
 		  	
-		  <main class="snap-start">
-		  	<div id="achievements">
-		  		<div class="cardcontainer">
-		  			
-		  		</div>
+		  <div id="achievements" class="snap-start">
+        <div class="section">
+		  	  <div class="cardcontainer">
+            <div>
+              <h6>Nothing here</h6>
+              <p>
+                Bottom
+              </p>
+		  	  </div>
+        </div>
+		  </div>
 
-		  	</div>
-		  	<div id="languages">
+		  <div id="languages" class="snap-start">
+        <div class="section">
 		  		<div class="cardcontainer">
 		  			<div>
 		  				Python
@@ -102,9 +126,11 @@
 		  			</div>
 		  			<p>We all know the amount of languages reaallyy doesn't matter</p>
 		  		</div>
+        </div>
+		  </div>
 
-		  	</div>
-		  	<div id="devops">
+		  <main class="snap-start">
+		  	<div id="vim">
 
 		  	</div>
 		  	<div id="jcdsa">

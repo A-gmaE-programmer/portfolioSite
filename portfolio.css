@@ -1,6 +1,11 @@
-/* 
-general classes that all elements can use 
-*/
+/* --- general classes --- */
+
+:root {
+  /* --main-bg-col: #150323; */
+  --main-bg-col: #19141c;
+  --light-blue: #3271e7;
+  --dark-blue: #1858cd;
+}
 
 /* just slap on a class cos I lazy */
 body.lightmode *:not(.img) {
@@ -12,6 +17,21 @@ body.lightmode *:not(.img) {
   display: none;
 }
 
+.pad-left {
+  padding-left: 16px;
+}
+
+.mini-icon {
+  width: 50%;
+  height: auto;
+}
+
+.custom-font {
+  font-family: "JetBrains Mono", sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: normal;
+}
+
+/* --- Cover --- */
 .cover-text {
   text-shadow: 0px 0px 8px black;
   color: #FFF;
@@ -41,6 +61,7 @@ body.lightmode *:not(.img) {
   margin: 4rem;
 }
 
+/* --- button --- */
 button {
   font-size: inherit;
   line-height: 0.8;
@@ -68,32 +89,25 @@ button:active {
   border: 2px inset #EEE;
 }
 
-.pad-left {
-  padding-left: 16px;
-}
-
-.custom-font {
-  font-family: "JetBrains Mono", sans-serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: normal;
-}
-
-.mini-icon {
-  width: 50%;
-  height: auto;
-}
-
+/* --- Cards --- */
 .cardcontainer {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   width: 100%;
+  align-items: stretch;
+
+  width: max-content;
 }
 
 .cardcontainer>div {
-  border-radius: 1rem;
-  background-color: #eee;
+  /* border-radius: 1rem; */
+  /* background: linear-gradient(49deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%); */
+  border: solid 4px white;
+  background-color: var(--main-bg-col);
   padding: 2.5rem;
   margin: 1.5rem;
-  max-width: 300px;
+  max-width: 400px;
+  min-width: 400px;
 }
 
 .cardcontainer>div>h6 {
@@ -103,6 +117,7 @@ button:active {
 }
 
 .cardcontainer>div>p {
+  color: var(--light-blue);
   margin: 0;
   padding: 0;
 }
@@ -177,7 +192,7 @@ body {
   margin: 0;
   /* background-color: #000; */
   /* background-color: #1b042b; */
-  background-color: #150323;
+  background-color: var(--main-bg-col);
   color: black;
 }
 
@@ -185,6 +200,10 @@ h6,
 span.bigger {
   font-size: 2rem;
   font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
 }
 
 
@@ -229,7 +248,7 @@ span.bigger {
 }
 
 @media screen and (min-width: 700px) {
-  /* desktop with goofy navbar */
+  /* desktop navbar */
 
   header {
     position: sticky;
@@ -237,16 +256,28 @@ span.bigger {
     overflow: visible;
     top: 100px;
     left: 100px;
-    /* doesnt work */
+    z-index: 19;
+  }
+
+  header::before {
+    content: '';
+    width: calc(14vw + 140px);
+    height: calc(40vh + 40px);
+    left: -100px;
+    top: -20px;
+    position: absolute;
+    background: var(--main-bg-col);
+    filter: blur(20px);
+    backdrop-filter: opacity(0);
   }
 
   .nav-list {
-    margin-left: 2vw;
-    padding: 24px 24px 24px 0px;
+    margin-left: -4vw;
+    padding: 24px 24px 24px 24px;
 
     transition: background 1s;
     z-index: 20;
-    width: 20%;
+    width: 25vh;
     white-space: nowrap;
     border-radius: 25px;
     position: relative;
@@ -256,65 +287,54 @@ span.bigger {
     padding-left: 40px;
   }
 
-  .nav-li:hover {
-    padding-left: 35px;
-    /* border-left: 5px solid blue; */
-  }
-
   .nav-li {
+    transition:
+      font-size 0.2s,
+      color 0.2s;
     position: relative;
   }
 
-  .nav-li:hover::before {
-    position: absolute;
-    content: '';
-    width: 0.7rem;
-    height: 100%;
-    left: 0rem;
-    /* backdrop-filter: blur(20px); */
-    /* mask-image: linear-gradient(0.25turn, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); */
-    z-index: 18;
-    /* filter: brightness(12); */
-    filter: blur(10px);
-    clip-path: view-box;
-    background: red;
+  .nav-li:hover {
+    padding-left: 35px;
+    border-left: 5px solid blue;
+    font-size: 125%;
+    cursor: pointer;
   }
 
-}
-
-
-/* .nav-list:hover { */
-  /* background: rgba(50, 161, 206, 0.4); */
-/* } */
-
-.nav-list::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backdrop-filter: blur(60px);
-  /* border-radius: 25px; */
-  filter: brightness(12) blur(7px);
-  /* clip-path: inset(0% 100% 0% 100% round 10px); */
-  clip-path: polygon(evenodd, 0 0, 100% 0, 100% 100%, 0 100%, 0 0, 0.7rem 0.7rem, calc(100% - 0.7rem) 0.7rem, calc(100% - 0.7rem) calc(100% - 0.7rem), 0.7rem calc(100% - 0.7rem), 0.7rem 0.7rem);
-  z-index: 30;
+  #nav-sep {
+    width: 2px;
+    height: 40vh;
+    position: absolute;
+    background: white;
+    left: 14vw;
+  }
 }
 
 .a-nav {
-  color: #3271e7;
+  color: var(--light-blue);
   text-decoration: inherit;
   font-size: inherit;
-  transition: font-size 0.2s;
 }
 
 .a-nav:hover {
-  color: #1858cd;
-  cursor: pointer;
-  font-size: 150%;
+  color: var(--dark-blue);
+}
+
+button.a-nav {
+  line-height: inherit;
+  background: rgba(0, 0, 0, 0);
+
+  padding: 0px;
+  width: auto;
+  height: auto;
+}
+
+button.a-nav:active {
+  border: 0;
 }
 
 #nav-header {
-  color: #1858cd;
+  color: var(--dark-blue);
 }
 
 .header-element {
@@ -331,12 +351,52 @@ span.bigger {
 
 
 /* Main Page */
+
+/* --- Page Sections --- */
 .section {
   position: relative;
-  left: 200px;
-  margin: auto;
+  left: 25vw;
+  /* margin: auto; */
+  height: 100vh;
+  padding-bottom: 10rem;
+  padding-top: 1rem;
+
+  width: 100%;
 }
 
+.section::before {
+  content: '';
+  position: absolute;
+
+  left: -25vw;
+  top: 4rem;
+
+  height: 2px;
+  width: 100vw;
+
+  backdrop-filter: blur(200px) brightness(5);
+  clip-path: polygon(
+    evenodd, 
+
+    0%     0%,
+    24.5%   0%,
+    24.5%   2px,
+    0%     2px,
+    0%     0%
+
+    /* 40% 0%, */
+    /* 100% 0%, */
+    /* 100% 100%, */
+    /* 40% 100%, */
+    /* 40% 0% */
+
+    );
+}
+
+.overflow-container {
+  width: 75vw;
+  overflow-x: scroll;
+}
 
 main {
   position: relative;
@@ -371,10 +431,11 @@ main {
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth !important;
   /* scroll-behavior: auto; */
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 .scroll-container > * {

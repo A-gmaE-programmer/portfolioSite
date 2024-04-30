@@ -4,51 +4,58 @@ function easeInOutQuad(x) {
 }
 
 // Smooth Scrolling using javascript
-let scrollContainer = document.querySelector('.scroll-container')
 class SmoothScroller {
-    constructor(start, dist, duration, easingFunction) {
+    constructor(start, dist, duration, easingFunction, scrollContainer) {
         this.start = start;
         this.dist = dist;
         this.duration = duration;
         this.easingFunction = easingFunction;
+        this.scrollContainer = scrollContainer;
         this.animateScrollTo = this.animateScrollTo.bind(this);
     }
     animateScrollTo(timeStamp) {
         if (this.progress === undefined) {
-            if (!scrollContainer) {
-                scrollContainer = document.querySelector('.scroll-container')
-            }
-            scrollContainer.style.scrollSnapType = "none";
+            this.scrollContainer.style.scrollSnapType = "none";
             this.startTime = timeStamp
         }
         if (this.progress >= 1) {
             window.cancelAnimationFrame(this.animateScrollTo)
-            scrollContainer.style.scrollSnapType = "";
+            this.scrollContainer.style.scrollSnapType = "";
+            if (window.target !== undefined) {
+                window.location.hash = window.target;
+            }
             return;
         };
         const elapsed = timeStamp - this.startTime;
         this.progress = elapsed / this.duration;
         const moveProgress = this.easingFunction(this.progress);
         const moveDist = this.dist * moveProgress;
-        scrollContainer.scrollTo(0, this.start + moveDist);
+        this.scrollContainer.scrollTo(0, this.start + moveDist);
         window.requestAnimationFrame(this.animateScrollTo)
     };
 }
 
-function smoothTo(location, time = 800) {
-    scrollContainer = document.querySelector('.scroll-container')
+function smoothTo(cssQuery, time = 800) {
+    let location = document.querySelector(cssQuery).getBoundingClientRect().y;
+    let scrollContainer = document.querySelector('.scroll-container')
     const start = scrollContainer.scrollTop;
-    const scroller = new SmoothScroller(start, location, time, easeInOutQuad)
+    const scroller = new SmoothScroller(
+        start,
+        location,
+        time,
+        easeInOutQuad,
+        scrollContainer
+    )
     window.requestAnimationFrame(scroller.animateScrollTo)
 }
 
 function checkInView(elem, margin = 0) {
-    let scrollContainer = document.querySelector('.scroll-container')
+    // let scrollContainer = document.querySelector('.scroll-container')
     let elemDim = elem.getBoundingClientRect()
     let elemTop = elemDim.top;
     let elemBot = elemDim.bottom;
-    let viewTop = scrollContainer.scrollTop;
-    let viewBot = scrollContainer.scrollTop + window.innerHeight;
+    // let viewTop = scrollContainer.scrollTop;
+    // let viewBot = scrollContainer.scrollTop + window.innerHeight;
 
     if (elemTop - margin < 0) { return false };
     if (elemBot + margin < 0) { return false };
@@ -60,7 +67,7 @@ function checkInView(elem, margin = 0) {
 let wasInView = {}
 wasInView.cov_head = true;
 document.addEventListener('DOMContentLoaded', () => {
-    scrollContainer = document.querySelector('.scroll-container')
+    let scrollContainer = document.querySelector('.scroll-container')
     scrollContainer.addEventListener('scroll', (event) => {
         console.log(event);
         let cov_head = document.getElementById("cover-headings")
@@ -80,4 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    let nav_lis = document.getElementsByClassName('nav-li')
+    for (let i = 0; i < nav_lis.length; i++) {
+        let children = nav_lis[i].children;
+        for (let j = 0; j < children.length; j++) {
+            let child = children[j];
+            if (child.tagName != 'A') { continue };
+            if (child.className != 'a-nav') { continue };
+            let target = child.href.split('#')[1];
+            let buttonElm = document.createElement('button');
+            buttonElm.className = 'a-nav';
+            buttonElm.setAttribute('onClick', `smoothTo('#${target}');window.target = '${target}'`);
+            buttonElm.innerHTML = child.innerHTML;
+            nav_lis[i].appendChild(buttonElm);
+            child.remove();
+        }
+    }
 })
