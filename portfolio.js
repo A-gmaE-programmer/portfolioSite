@@ -9,18 +9,14 @@ class Toggle {
         if (state != this.state) {
             if (state) {
                 this.toggleOn();
-                this.state = !self.state;
+                this.state = !this.state;
             } else {
                 this.toggleOff();
-                this.state = !self.state;
+                this.state = !this.state;
             }
         }
     }
 }
-
-
-
-
 
 // Easing Function
 function easeInOutQuad(x) {
@@ -81,7 +77,10 @@ function checkInView(elem, margin = 0) {
     // let viewTop = scrollContainer.scrollTop;
     // let viewBot = scrollContainer.scrollTop + window.innerHeight;
 
-    if (elemTop - margin < 0) { return false };
+    // Top of element below bottom of screen
+    if (elemTop - margin > window.innerHeight) { return false };
+
+    // Bottom of element above top of screen
     if (elemBot + margin < 0) { return false };
 
     return true;
@@ -146,9 +145,25 @@ wasInView.cov_head = true;
 document.addEventListener('DOMContentLoaded', () => {
     let cov_head = document.getElementById("cover-headings");
     let cov_head_watcher = new Toggle(
-        checkInView(cov_head, -64),
+        // checkInView(cov_head, -0.25 * window.innerHeight),
+        true,
         () => {
             let children = cov_head.children;
+            for (let i = 0; i < children.length; i++) {
+                children[i].className = "";
+                children[i].offsetWidth;
+                children[i].className = "slider";
+            }
+            console.log("Cover")
+        },
+        () => {}
+    );
+
+    let nav = document.getElementsByClassName("nav-list")[0];
+    let nav_watcher = new Toggle(
+        checkInView(nav),
+        () => {
+            let children = nav.children;
             for (let i = 0; i < children.length; i++) {
                 children[i].className = "";
                 children[i].offsetWidth;
@@ -157,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         () => {}
     );
+
     let cooldown = [-1];
     let scrollContainer = document.querySelector('.scroll-container')
     scrollContainer.addEventListener('scroll', (event) => {
@@ -169,9 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // console.log(event);
         let cov_head = document.getElementById("cover-headings")
-        cov_head_watcher.update(
-            checkInView(cov_head, -64)
-        );
+        console.log(checkInView(cov_head, -0.25 * window.innerHeight))
+        cov_head_watcher.update(checkInView(cov_head, -0.25 * window.innerHeight));
+        nav_watcher.update(checkInView(nav));
     });
 
     // Apply smooth scrolling to navlist
