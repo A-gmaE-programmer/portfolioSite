@@ -7,6 +7,14 @@
   --dark-blue: #1858cd;
 }
 
+.hov-float {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hov-float:hover {
+  transform: translate(0, -5px);
+}
+
 /* just slap on a class cos I lazy */
 body.lightmode *:not(.img) {
   filter: invert(100%);
@@ -129,6 +137,35 @@ button:hover {
 
 button:active {
   border: 2px inset #EEE;
+}
+
+/* Programming languages widgets */
+.minicontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-content: flex-start;
+
+  width: inherit;
+  /* height: 6rem; */
+}
+
+.minicontainer > div {
+  height: 2rem;
+  margin: 1rem;
+  padding: 1rem;
+
+  border-radius: 1rem;
+  /* flex: 1 1 max-content; */
+  width: max-content;
+
+  background-color: lightsalmon;
+}
+
+.language-name {
+  color: var(--main-bg-col);
+  margin: auto;
 }
 
 /* --- Cards --- */

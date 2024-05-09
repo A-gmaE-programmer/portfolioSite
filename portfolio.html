@@ -7,11 +7,14 @@
 		<title> Portfolio </title>
 		<link rel="stylesheet" href="portfolio.css">
     <script src="portfolio.js"></script>
+    <style id="colors">
+.colors:nth-child(1) { background-color: #EFB5E8; } .colors:nth-child(2) { background-color: #FFBB44; } .colors:nth-child(3) { background-color: #B28BFF; } .colors:nth-child(4) { background-color: #85D3AF; } .colors:nth-child(5) { background-color: #FFE56A; } .colors:nth-child(6) { background-color: #D35FA0; } .colors:nth-child(7) { background-color: #3E90FF; } .colors:nth-child(8) { background-color: #6EB5FF; } .colors:nth-child(9) { background-color: #D5AAFF; } .colors:nth-child(10) { background-color: #FFABAB; } .colors:nth-child(11) { background-color: #EF9CEE; } .colors:nth-child(12) { background-color: #90EE90; }
+    </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Protest+Revolution">
 	</head>
 
-	<body class="custom-font" onload="init();">
+	<body class="custom-font">
     <div class="scroll-container">
 		  <div id="cover" class="snap-start">
 		  	<div id="cover-headings">
@@ -45,7 +48,7 @@
 		  		<li class="nav-li"><a class="a-nav" href="#cover">Top</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#projects">Projects</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#achievements">Achievements</a></li>
-		  		<li class="nav-li"><a class="a-nav" href="#languages">Languages</a></li>
+		  		<li class="nav-li"><a class="a-nav" href="#skills">Skills</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#vim">Vim & Linux</a></li>
 		  		<li class="nav-li"><a class="a-nav" href="#jcdsa">JC DSA specific</a></li>
 		  	</ol>
@@ -134,33 +137,41 @@
 		  	
 		  <div id="achievements" class="snap-start">
         <div class="section">
-		  	  <div class="cardcontainer">
-            <div>
-              <h6>Nothing here</h6>
-              <p>
-                Bottom
-              </p>
-		  	  </div>
+          <div class="overflow-container">
+		  	    <div class="cardcontainer">
+              <div>
+                <h6>Nothing here</h6>
+                <p>
+                  Bottom
+                </p>
+              </div>
+		  	    </div>
+          </div>
         </div>
 		  </div>
 
-		  <div id="languages" class="snap-start">
+		  <div id="skills" class="snap-start">
         <div class="section">
-		  		<div class="cardcontainer">
-		  			<div>
-		  				Python
-		  				<img class="mini-icon" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Python_logo_51.svg">
-		  			</div><div>	
-		  				<h6>HTML/CSS/JS</h6>
-		  			</div><div>
-		  				<h6>C++</h6>
-		  			</div><div>
-		  				<h6>LEGO Mindstorms</h6>
-		  			</div><div>
-		  				<h6>Scratch</h6>
-		  			</div>
-		  			<p>We all know the amount of languages reaallyy doesn't matter</p>
-		  		</div>
+          <div class="overflow-container">
+            <h5>Languages</h5>
+		  		  <div class="minicontainer">
+		  		  	<div class="colors hov-float">
+                <h6 class="language-name">Python</h6>
+		  		  	</div>
+              <div class="colors hov-float">	
+		  		  		<h6 class="language-name">HTML/CSS/JS</h6>
+		  		  	</div>
+              <div class="colors hov-float">
+		  		  		<h6 class="language-name">C++</h6>
+		  		  	</div>
+              <div class="colors hov-float">
+		  		  		<h6 class="language-name">LEGO Mindstorms</h6>
+		  		  	</div>
+              <div class="colors hov-float">
+		  		  		<h6 class="language-name">Scratch</h6>
+		  		  	</div>
+		  		  </div>
+          </div>
         </div>
 		  </div>
 
