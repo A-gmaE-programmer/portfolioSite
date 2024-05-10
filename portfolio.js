@@ -154,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 children[i].offsetWidth;
                 children[i].className = "slider";
             }
-            console.log("Cover")
         },
         () => {}
     );
@@ -185,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // console.log(event);
         let cov_head = document.getElementById("cover-headings")
-        console.log(checkInView(cov_head, -0.25 * window.innerHeight))
         cov_head_watcher.update(checkInView(cov_head, -0.25 * window.innerHeight));
         nav_watcher.update(checkInView(nav));
     });

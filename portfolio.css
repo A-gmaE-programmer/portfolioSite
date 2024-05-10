@@ -20,6 +20,10 @@ body.lightmode *:not(.img) {
   filter: invert(100%);
 }
 
+.colors {
+  transition: background-color 1s ease;
+}
+
 /* this should work better than js style.display = none */
 .nodisp {
   display: none;
@@ -32,6 +36,10 @@ body.lightmode *:not(.img) {
 .mini-icon {
   width: 50%;
   height: auto;
+}
+
+.wrapper-a {
+  display: contents;
 }
 
 .custom-font {
@@ -67,6 +75,11 @@ body.lightmode *:not(.img) {
   font-weight: 400;
   line-height: 1;
   margin: 4rem;
+}
+
+.inline-svg-container {
+  display: flex;
+  align-items: center;
 }
 
 /* --- button --- */
@@ -151,6 +164,7 @@ button:active {
   /* height: 6rem; */
 }
 
+.minicontainer-elm,
 .minicontainer > div {
   height: 2rem;
   margin: 1rem;
@@ -500,6 +514,12 @@ button.a-nav:active {
   width: 70vw;
   overflow-x: scroll;
   height: 80%;
+}
+
+.width-container {
+  width: 70vw;
+  overflow-x: scroll;
+  height: max-content;
 }
 
 main {
