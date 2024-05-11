@@ -69,6 +69,12 @@ body.lightmode *:not(.img) {
   text-align: left;
 }
 
+#cover-headings > a {
+  text-decoration: none;
+  width: max-content;
+  height: max-content;
+}
+
 .big-heading {
   font-size: 250%;
   /* font-size: 4rem; */
@@ -77,9 +83,34 @@ body.lightmode *:not(.img) {
   margin: 4rem;
 }
 
-.inline-svg-container {
-  display: flex;
-  align-items: center;
+.github-link {
+  border-radius: 8px;
+  border-width: 2px;
+  border-style: none none solid none;
+  border-color: white;
+  padding: 4px;
+
+  background: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2)
+  )
+}
+
+.github-link:hover {
+  border-style: inset;
+}
+
+.bot-left-note {
+  position: absolute;
+  right: 5vw;
+  bottom: 2.5vh;
+  width: 40vh;
+}
+
+.bot-left-note > h6 {
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 20px;
 }
 
 /* --- button --- */
@@ -180,6 +211,11 @@ button:active {
 .language-name {
   color: var(--main-bg-col);
   margin: auto;
+}
+
+.inline-svg-container {
+  display: flex;
+  align-items: center;
 }
 
 /* --- Cards --- */
