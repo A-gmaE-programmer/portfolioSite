@@ -135,8 +135,22 @@ function shuffle_colors() {
         style.appendChild(document.createTextNode(colorStyle));
         head.appendChild(style);
     }
+}
 
-
+function toggle_visible(ids) {
+    let elements = ids.map((id) => document.getElementById(id));
+    for (let element of elements) {
+        let cl = element.classList
+        if (cl.contains("nodisp")) {
+            cl.remove("nodisp");
+            cl.remove("fade-out");
+            cl.add("fade-in");
+        } else {
+            setTimeout(()=>cl.add("nodisp"), 500);
+            cl.add("fade-out");
+            cl.remove("fade-in");
+        }
+    }
 }
 
 // Slider animation
@@ -207,5 +221,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     shuffle_colors();
+
+    // Read more div -> floating card
+    let floating_card_buttons = document.getElementsByClassName("show-button")
+    for (let fc_btn of floating_card_buttons) {
+        let targets = ["floating-divs"];
+        for (let className of fc_btn.classList) {
+            if (className.startsWith("target-")) {
+                targets.push(className.substring(7));
+            }
+        }
+        fc_btn.addEventListener('click', ()=>{
+            toggle_visible(targets);
+            let floatdiv_container = document.getElementById("floating-divs");
+            function reHide(e) {
+                if (e.type == 'click' || (e.type == 'keydown' && e.key == 'Escape')) {
+                    floatdiv_container.removeEventListener('click', reHide);
+                    document.removeEventListener('keydown', reHide);
+                    toggle_visible(targets)
+                }
+            }
+            floatdiv_container.addEventListener('click', reHide)
+            document.addEventListener('keydown', reHide);
+        })
+    }
+
 })
 

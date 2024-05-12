@@ -29,6 +29,14 @@ body.lightmode *:not(.img) {
   display: none;
 }
 
+.disp-toggle {
+  transition: 0.5 ease;
+}
+
+.margin-auto {
+  margin-top: auto;
+}
+
 .pad-left {
   padding-left: 16px;
 }
@@ -104,7 +112,7 @@ body.lightmode *:not(.img) {
   position: absolute;
   right: 5vw;
   bottom: 2.5vh;
-  width: 40vh;
+  width: 42vh;
 }
 
 .bot-left-note > h6 {
@@ -141,8 +149,6 @@ button {
   border: 1px solid white;
   width: calc(100% - 6px * 2);
 
-  margin-top: auto;
-
   transition-duration: 0.4s;
 }
 
@@ -167,11 +173,11 @@ button {
   display: inline;
   position: relative;
   left: -1em;
+  text-decoration: underline;
 }
 
 .openbutton:hover {
   cursor: pointer;
-  background-color: #ddd;
   background: #360a50;
 }
 
@@ -223,7 +229,6 @@ button:active {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-items: stretch; */
   align-content: stretch;
 
   /* width: max-content; */
@@ -231,6 +236,7 @@ button:active {
   height: 100%;
 }
 
+.floating-card,
 .cardcontainer>div {
   /* border-radius: 1rem; */
   /* background: linear-gradient(49deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%); */
@@ -240,11 +246,12 @@ button:active {
   margin: 1.5rem;
   /* min-width: 30rem; */
 
-  flex: 1 1 19rem;
+  flex: 1 1 27rem;
 
   transition: 0.3s ease-in-out;
 }
 
+.floating-card,
 .cardcontainer>div:hover {
   border: double 4px white;
   box-shadow: 0px 0px 1.5rem 0px rgba(95, 113, 195, 80);
@@ -252,16 +259,41 @@ button:active {
   /* background-blend-mode: multiply; */
 }
 
+.floating-card>h6,
 .cardcontainer>div>h6 {
   margin: 0;
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
+.floating-card>p,
 .cardcontainer>div>p {
   color: var(--light-blue);
   margin: 0;
   padding: 0;
+}
+
+/* Floating cards */
+
+#floating-divs {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 29;
+  backdrop-filter: blur(10px);
+}
+
+.floating-card {
+  margin: 0px;
+  position: fixed;
+  z-index: 30;
+  height: 60vh;
+  width: 60vw;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
 }
 
 .sidebyside {
@@ -368,6 +400,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #666;
   /* background-color: rgba(127, 127, 127, 1); */
   background-size: cover;
+  z-index: 5;
 }
 
 #cover>div {
@@ -598,11 +631,6 @@ main {
   scroll-snap-type: y proximity;
 }
 
-.scroll-container > * {
-  /* Dark magic smooth scroll workaround */
-  transition: translate 0.5s ease-in-out;
-}
-
 /* Slider text */
 .slider {
   position: relative;
@@ -680,3 +708,20 @@ main {
   }
 }
 
+.fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.fade-out {
+  animation: fade-out 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
