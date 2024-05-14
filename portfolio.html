@@ -15,12 +15,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Protest+Revolution">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 	</head>
 
 	<body class="custom-font">
     <div id="floating-divs" class="nodisp">
       <div style="font-size: 3vh;line-height: 4vh;" id="pywebsockets-more" class="floating-card nodisp">
-        <p>
+        <p class="text-wall">
           Initially I had the idea of using this as a teaching tool for python.
           Students would be able to use a list of abstracted python functions to draw 
           to a canvas in the browser. I knew this would not be easy, but it would be 
@@ -119,7 +120,7 @@
             <div class="nav-slider-div slider-hidden"></div>
           </li>
 		  		<li class="nav-li slider">
-            <a class="a-nav" href="#jcdsa">JC DSA specific</a>
+          <a class="a-nav" href="#credits"><!--JC DSA specific-->Bottom</a>
             <div class="nav-slider-div slider-hidden"></div>
           </li>
 		  	</ol>
@@ -133,9 +134,9 @@
 		  	  <h5>My Projects</h5>
           <div class="overflow-container">
 		  	    <div class="cardcontainer">
-		  	    	<div class="flex-col">
+		  	    	<div class="flex-col float-in">
 		  	    		<h6>Pywebsockets</h6>
-		  	    		<p>
+		  	    		<p class="text-wall">
                   Talking to the browser using python.<br>
                   Imagine if you could call a function in python, and have it draw to a javascript canvas.
 		  	    		</p>
@@ -148,9 +149,9 @@
                   <p>Github</p>
                 </a>
 		  	    	</div>
-		  	    	<div class="flex-col">
+		  	    	<div class="flex-col float-in">
 		  	    		<h6>WIP scripting language</h6>
-		  	    		<p>
+		  	    		<p class="text-wall">
                   *** Work in progress ***<br>
                   I really like scripting, both in bash an python as it is really easy on linux.
                   Sadly, I don't like the way python interacts with the command line. It feels
@@ -165,12 +166,13 @@
                   <!-- </div> -->
                 </a>
 		  	    	</div>
-              <div class="flex-col">
+              <div class="flex-col float-in">
                 <h6>This website</h6>
-                <p>
+                <p class="text-wall">
                   Developed by me with a little help from my good friend Ansel Lee.
                   Vanilla HTML/CSS/JS, with the intention of creating a website that
                   still works (mostly) even without javascript enabled.<br>
+                  Smooth scrolling is still not supported on most browsers so I reimplemented it in javascript.<br>
                   Snow by <a style="color: inherit;" href="https://codepen.io/alphardex/pen/dyPorwJ" target="_blank">alphardex</a>
                 </p>
                 <br>&nbsp
@@ -178,9 +180,9 @@
                   <p>Shared Repo</p>
                 </a>
               </div>
-              <div class="flex-col">
+              <div class="flex-col float-in">
                 <h6>Boolean statement parser/interpreter</h6>
-                <p>
+                <p class="text-wall">
                   Boolean operations were being taught in computing. I wanted a less 
                   manual way to generate truth tables. Thus I implemented a tiny library
                   in python capable of taking in a boolean statement and evaluating it.
@@ -192,9 +194,9 @@
                   <!-- </div> -->
                 </a>
               </div>
-              <div class="flex-col">
+              <div class="flex-col float-in">
                 <h6>C messaging server</h6>
-                <p>
+                <p class="text-wall">
                   This was a simple project just to learn about sockets, it simply 
                   allows for communication between two computers using sockets. 
                   I also learnt how to use multiple threads and mutex locks.
@@ -215,7 +217,7 @@
           <h5>Achievements</h5>
           <div class="overflow-container">
 		  	    <div class="cardcontainer">
-              <div style="padding: 0px;min-width: 65vw; height: 70vh;">
+              <div style="padding: 0px;min-width: 65vw; height: 70vh;" class="float-in">
                 <embed width="100%" height="100%" src="CS50x.pdf" type="application/pdf">
                 </embed>
               </div>
@@ -225,10 +227,10 @@
 		  </div>
 
 		  <div id="skills" class="snap-start">
-        <div class="section">
+        <div style="min-height: 100vh;" class="section">
           <h5>Languages</h5>
           <div style="width: 65vw;" class="width-container">
-		  		  <div class="minicontainer">
+		  		  <div class="minicontainer float-in">
 
 		  		  	<div class="colors hov-float">
                 <h6 class="language-name inline-svg-container">
@@ -288,7 +290,7 @@
                   <!-- <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 25 25" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16.5921 9.1962s-.354-3.298-3.627-3.39c-3.2741-.09-4.9552 2.474-4.9552 6.14 0 3.6651 1.858 6.5972 5.0451 6.5972 3.184 0 3.5381-3.665 3.5381-3.665l6.1041.365s.36 3.31-2.196 5.836c-2.552 2.5241-5.6901 2.9371-7.8762 2.9201-2.19-.017-5.2261.034-8.1602-2.97-2.938-3.0101-3.436-5.9302-3.436-8.8002 0-2.8701.556-6.6702 4.047-9.5502C7.444.72 9.849 0 12.254 0c10.0422 0 10.7172 9.2602 10.7172 9.2602z"></path></svg> -->
             <br id="vim">&nbsp
             <h5>Tools</h5>
-		  	    <div class="minicontainer">
+		  	    <div class="minicontainer float-in">
               <div class="colors hov-float">
                 <h6 class="language-name inline-svg-container">
                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 25 25" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M2.214 4.954v13.615L7.655 24V10.314L3.312 3.845 2.214 4.954zm4.999 17.98l-4.557-4.548V5.136l.59-.596 3.967 5.908v12.485zm14.573-4.457l-.862.937-4.24-6.376V0l5.068 5.092.034 13.385zM7.431.001l12.998 19.835-3.637 3.637L3.787 3.683 7.43 0z"></path></svg>
@@ -342,8 +344,8 @@
         </div>
 		  </div>
 
-		  <div id="jcdsa" class="snap-start">
-		  </div>
+		  <!-- <div id="jcdsa" class="snap-start"> -->
+		  <!-- </div> -->
 
       <div id="credits">Made by Kevin Langner and Ansel Lee, ACSBR 2024</div>
     </div>

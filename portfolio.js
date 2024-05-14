@@ -153,6 +153,25 @@ function toggle_visible(ids) {
     }
 }
 
+function float_in() {
+    // Elements with float-in class
+    let old_float_in  = document.getElementsByClassName('float-in');
+    // Elements with float-out class
+    let old_float_out = document.getElementsByClassName('float-out');
+    for (let elm of old_float_in) {
+        if (!checkInView(elm)) {
+            elm.classList.remove("float-in");
+            elm.classList.add("float-out");
+        }
+    }
+    for (let elm of old_float_out) {
+        if (checkInView(elm)) {
+            elm.classList.remove("float-out");
+            elm.classList.add("float-in");
+        }
+    }
+}
+
 // Slider animation
 let wasInView = {}
 wasInView.cov_head = true;
@@ -200,6 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let cov_head = document.getElementById("cover-headings")
         cov_head_watcher.update(checkInView(cov_head, -0.25 * window.innerHeight));
         nav_watcher.update(checkInView(nav));
+
+        float_in();
     });
 
     // Apply smooth scrolling to navlist
@@ -248,3 +269,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+window.location.hash = ""

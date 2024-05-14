@@ -55,6 +55,10 @@ body.lightmode *:not(.img) {
   font-weight: normal;
 }
 
+.text-wall {
+  font-family: 'IBM Plex Serif', Georgia, 'Times New Roman', Times, serif;
+}
+
 /* --- Cover --- */
 .cover-text {
   text-shadow: 0px 0px 8px black;
@@ -116,7 +120,7 @@ body.lightmode *:not(.img) {
 }
 
 .bot-left-note > h6 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 200;
   line-height: 20px;
 }
@@ -724,4 +728,31 @@ main {
 @keyframes fade-out {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* Float in */
+.float-in {
+  animation: float-in 0.7s ease-in-out forwards;
+}
+
+.float-out {
+  opacity: 0;
+}
+
+@keyframes float-in {
+  0% { 
+    translate: 0px 10px; 
+    opacity: 0;
+  }
+  100% {
+    translate: 0px 0px;
+    opacity: 1;
+  }
+}
+
+/* Credits? */
+#credits {
+  font-weight: 200;
+  font-size: 20px;
+  color: wheat;
 }
