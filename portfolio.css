@@ -5,6 +5,7 @@
   --main-bg-col: #19141c;
   --light-blue: #3271e7;
   --dark-blue: #1858cd;
+  --text-wall-col: #80dbf2;
 }
 
 .hov-float {
@@ -57,6 +58,13 @@ body.lightmode *:not(.img) {
 
 .text-wall {
   font-family: 'IBM Plex Serif', Georgia, 'Times New Roman', Times, serif;
+}
+
+.simple-h3 {
+  margin: 0.5rem;
+  line-height: 2rem;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 /* --- Cover --- */
@@ -272,7 +280,7 @@ button:active {
 
 .floating-card>p,
 .cardcontainer>div>p {
-  color: var(--light-blue);
+  color: var(--text-wall-col);
   margin: 0;
   padding: 0;
 }
@@ -547,7 +555,8 @@ button.a-nav:active {
   position: relative;
   left: 25vw;
   /* margin: auto; */
-  height: max(100vh, min-content);
+  height: min-content;
+  min-height: 100vh;
   padding-bottom: 10rem;
   padding-top: 1rem;
 
@@ -755,4 +764,99 @@ main {
   font-weight: 200;
   font-size: 20px;
   color: wheat;
+}
+
+
+/* "Folded" cards */
+.folding-container {
+  width: 70vw;
+  height: 80%;
+
+  position: relative;
+}
+
+.folding-container>div:not(.folding-menu) {
+  border: solid 4px white;
+  background-color: var(--main-bg-col);
+  transition: 0.3s ease-in-out;
+
+  width: 100%;
+  height: 70vh;
+
+  margin-top: 5vh;
+  display: flex;
+}
+
+.folding-container>div:not(.folding-menu):hover {
+  border: double 4px white;
+  box-shadow: 0px 0px 1.5rem 0px rgba(95, 113, 195, 80);
+}
+
+.folding-container a {
+  color: var(--light-blue);
+  text-decoration: inherit;
+  font-size: inherit;
+}
+
+.folding-container a:hover {
+  color: var(--dark-blue);
+  cursor: pointer;
+}
+
+.folding-menu {
+  z-index: 100;
+  position: absolute;
+  width: 7vw;
+  height: 15vh;
+
+  translate: 0px -50%;
+  top: 35vh;
+  left: 1vw;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.folding-menu>* {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  transition: translate 0.3s ease-in-out;
+
+  color: var(--light-blue);
+  text-shadow: 0px 0px 2px white;
+}
+
+.folding-menu>*:hover {
+  color: var(--dark-blue);
+}
+
+.folding-menu>a {
+  color: var(--light-blue);
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+.folding-menu-open:hover {
+  translate: 10% -10%;
+}
+
+.folding-menu-next:hover {
+  translate: 10%;
+}
+
+.folding-menu-prev:hover {
+  translate: -10%;
+}
+
+.cardcover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }

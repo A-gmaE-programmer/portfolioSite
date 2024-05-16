@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     shuffle_colors();
 
     // Read more div -> floating card
-    let floating_card_buttons = document.getElementsByClassName("show-button")
+    let floating_card_buttons = document.getElementsByClassName("show-button");
     for (let fc_btn of floating_card_buttons) {
         let targets = ["floating-divs"];
         for (let className of fc_btn.classList) {
@@ -262,8 +262,87 @@ document.addEventListener('DOMContentLoaded', () => {
                     toggle_visible(targets)
                 }
             }
-            floatdiv_container.addEventListener('click', reHide)
+            floatdiv_container.addEventListener('click', reHide);
             document.addEventListener('keydown', reHide);
+        })
+    }
+
+    // Folding cards
+    function gen_card_style(index, card) {
+        let style = card.style;
+        style.margin = "0px";
+        style.position = index ? "absolute" : "relative";
+        style.left = `${index * 9}vw`;
+        style.top = `${index * 3}vh`;
+        style.zIndex = `${69 - index}`;
+        style.width = "70%";
+
+        // Add & remove nodisp to cardcovers that detect keypresses
+        if (index) {
+            card.children[1].classList.remove("nodisp");
+        } else {
+            card.children[1].classList.add("nodisp");
+        }
+    }
+    function reorder_cards(order, cards, skip_children=1) {
+        let length = cards.length - skip_children;
+
+        for (let i=0; i<length; i++) {
+            gen_card_style(order[i], cards[i+skip_children]);
+        }
+    }
+    // Do styling on containers
+    let folding_containers = document.getElementsByClassName("folding-container");
+    for (let fold_cont of folding_containers) {
+        let order = [];
+        let length = fold_cont.childElementCount - 1;
+        for (let i=0; i<length; i++) {
+            order.push(i);
+        }
+        fold_cont.order = order;
+        reorder_cards(order, fold_cont.children);
+        // Event listeners on cards
+        length++;
+        for (let i=1; i<length; i++) {
+            let card = fold_cont.children[i].children[1];
+            let container = fold_cont
+            card.addEventListener('click', () => {
+                let ord = container.order;
+                ord.unshift(ord.pop());
+                reorder_cards(ord, container.children);
+                // let ord = fold_cont.order;
+                // console.log(ord);
+                // let cardIndex = i-1;
+                // let rotDist = ord.indexOf(cardIndex);
+                // let length = ord.length;
+                // rotDist = length - rotDist;
+                // for (let i of ord.splice(0, rotDist)) {
+                //     ord.push(i);
+                // }
+                // console.log(ord);
+                // reorder_cards(ord, fold_cont.children);
+            })
+        }
+    }
+    // Do event listeners on menu
+    for (let fold_menu of document.getElementsByClassName("folding-menu")) {
+        fold_menu.classList.remove("nodisp");
+        let open_btn = fold_menu.children[0];
+        let next_btn = fold_menu.children[1];
+        let prev_btn = fold_menu.children[2];
+
+        next_btn.addEventListener('click', () => {
+            let container = fold_menu.parentElement;
+            let ord = container.order;
+            ord.unshift(ord.pop());
+            reorder_cards(ord, container.children);
+            open_btn.href = container.children[ord[0]+1].children[0].src;
+        })
+        prev_btn.addEventListener('click', () => {
+            let container = fold_menu.parentElement;
+            let ord = container.order;
+            ord.push(ord.shift());
+            reorder_cards(ord, container.children);
         })
     }
 

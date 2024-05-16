@@ -20,7 +20,7 @@
 
 	<body class="custom-font">
     <div id="floating-divs" class="nodisp">
-      <div style="font-size: 3vh;line-height: 4vh;" id="pywebsockets-more" class="floating-card nodisp">
+      <div style="font-size: 3vh;line-height: 4vh;" id="pywebsockets-more" class="floating-card nodisp float-in">
         <p class="text-wall">
           Initially I had the idea of using this as a teaching tool for python.
           Students would be able to use a list of abstracted python functions to draw 
@@ -215,14 +215,41 @@
 		  <div id="achievements" class="snap-start">
         <div class="section">
           <h5>Achievements</h5>
-          <div class="overflow-container">
-		  	    <div class="cardcontainer">
-              <div style="padding: 0px;min-width: 65vw; height: 70vh;" class="float-in">
-                <embed width="100%" height="100%" src="CS50x.pdf" type="application/pdf">
-                </embed>
-              </div>
-		  	    </div>
-          </div>
+		  	  <div class="folding-container">
+            <div class="folding-menu nodisp">
+              <a href="CS50x.pdf" class="simple-h3 inline-svg-container folding-menu-open" target="_blank">
+                Open
+                <svg stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" viewBox="0 0 25 25" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </a>
+              <h3 class="simple-h3 inline-svg-container folding-menu-next">
+                Next
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 25 25" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19.1642 12L12.9571 5.79291L11.5429 7.20712L16.3358 12L11.5429 16.7929L12.9571 18.2071L19.1642 12ZM13.5143 12L7.30722 5.79291L5.89301 7.20712L10.6859 12L5.89301 16.7929L7.30722 18.2071L13.5143 12Z"></path></svg>
+              </h3>
+              <h3 class="simple-h3 inline-svg-container folding-menu-prev">
+                Prev
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 25 25" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4.83578 12L11.0429 18.2071L12.4571 16.7929L7.66421 12L12.4571 7.20712L11.0429 5.79291L4.83578 12ZM10.4857 12L16.6928 18.2071L18.107 16.7929L13.3141 12L18.107 7.20712L16.6928 5.79291L10.4857 12Z"></path></svg>
+              </h3>
+            </div>
+
+            <div id="cert-1" class="float-in">
+              <embed width="100%" height="100%" src="CS50x.pdf" type="application/pdf">
+              </embed>
+              <div class="cardcover nodisp"></div>
+            </div>
+            <div id="cert-2" class="float-in">
+              <embed width="100%" height="100%" src="Kevin_NOI.pdf" type="application/pdf">
+              </embed>
+              <div class="cardcover nodisp"></div>
+            </div>
+            <div id="cert-3" class="float-in">
+              <iframe width="100%" height="100%" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTBfBH7eU_XLfMqLLaOCpBJZM0da7XOHuAqd0RI-XQb0m535Ci8yVkzrcPg4FX-R6166qwy-YpKU_yG/pubhtml?widget=true&amp;headers=false%22#gid=1033880406" type="application/pdf">
+              </iframe>
+              <div class="cardcover nodisp"></div>
+            </div>
+		  	  </div>
         </div>
 		  </div>
 
