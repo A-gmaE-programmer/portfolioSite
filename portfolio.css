@@ -417,7 +417,29 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+#about-me-img-container {
+  position: relative;
+  top: 0px;
+  left: 40vw;
 
+  height: 0px;
+  width: 0px;
+}
+
+#about-me-img {
+  position: absolute;
+  top: 10vh;
+  left: 3vh;
+  
+  height: 80vh;
+  width: 25vw;
+  
+  background-image: url("img/website-js.png");
+  background-size: cover;
+  opacity: 0.7;
+
+  border: inset 2px white;
+}
 
 /* --- splash cover --- */
 #cover {

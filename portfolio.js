@@ -336,13 +336,26 @@ document.addEventListener('DOMContentLoaded', () => {
             let ord = container.order;
             ord.unshift(ord.pop());
             reorder_cards(ord, container.children);
-            open_btn.href = container.children[ord[0]+1].children[0].src;
+
+            let extern_doc = container.children[ord.indexOf(0)+1].children[0];
+            if (extern_doc.attributes["data-target"]) {
+                open_btn.href = extern_doc.attributes["data-target"].value;
+            } else {
+                open_btn.href = extern_doc.src;
+            }
         })
         prev_btn.addEventListener('click', () => {
             let container = fold_menu.parentElement;
             let ord = container.order;
             ord.push(ord.shift());
             reorder_cards(ord, container.children);
+
+            let extern_doc = container.children[ord.indexOf(0)+1].children[0];
+            if (extern_doc.attributes["data-target"]) {
+                open_btn.href = extern_doc.attributes["data-target"].value;
+            } else {
+                open_btn.href = extern_doc.src;
+            }
         })
     }
 
