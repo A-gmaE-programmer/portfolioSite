@@ -90,14 +90,16 @@ button {
 }
 
 .openbutton {
-	color: white;
-	border-radius: 5px;
-	padding: 5px;
 	display: inline-block;
 	border: 1px solid white;
-	width: calc(100% - 6px * 2);
-
+	color: white;
+	
 	margin-top: auto;
+	margin-bottom: 10px;
+	padding: 8px;
+	border-radius: 5px;
+	width: calc(100% - 6px * 2);
+	font-size: 1.3rem;
 
 	transition-duration: 0.4s;
 }
@@ -291,7 +293,6 @@ body {
 	/* background-color: #000; */
 	/* background-color: #1b042b; */
 	background-color: var(--main-bg-col);
-	color: black;
 }
 
 h6,
@@ -300,7 +301,7 @@ span.bigger {
 	font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, div {
 	color: white;
 }
 
@@ -341,10 +342,15 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width: 750px) {
 	/* mobile. navbar should be on top */
 	header {
-		float: top;
+		position: sticky;
+		top: 0;
+		background-color: rgba(25, 20, 28, 30);
+		z-index: 5;
+		padding: 10px;
+		border-bottom: 4px solid #000;
 	}
 
-	li.nav-li {
+	ol.nav-list li:not(:first-child) {
 		display: inline-block;
 	}
 }
@@ -423,6 +429,11 @@ h1, h2, h3, h4, h5, h6 {
 		position: absolute;
 		background: white;
 		left: 14vw;
+	}
+
+	/* card container max width */
+	.cardcontainer {
+		max-width: 70vw;
 	}
 }
 
@@ -517,9 +528,7 @@ button.a-nav:active {
 }
 
 .overflow-container {
-	max-width: 70vw;
 	overflow-x: scroll;
-	height: 80%;
 }
 
 main {
