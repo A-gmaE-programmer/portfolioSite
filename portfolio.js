@@ -211,3 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
     shuffle_colors();
 })
 
+function shownavbar() {
+    document.getElementsByTagName('header')[0].classList.toggle('hidenav')
+}
+
+
+function init() {
+    document.getElementsByTagName('header')[0].classList.add('hidenav')
+    document.getElementById("navhintfloat").children[0].addEventListener("click", shownavbar)
+}

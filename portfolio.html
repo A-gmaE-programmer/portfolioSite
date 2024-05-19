@@ -16,7 +16,7 @@
 			href="https://fonts.googleapis.com/css2?family=Protest+Revolution">
 	</head>
 
-	<body class="custom-font">
+	<body class="custom-font" onload="init()"">
 		<div class="scroll-container">
 			<div id="cover" class="snap-start">
 				<div id="cover-headings">
@@ -44,6 +44,7 @@
 				</div>
 			</div>
 
+			<!-- Navigation -->
 			<header>
 				<div id="nav-sep"></div>
 				<ol class="nav-list">
@@ -60,7 +61,7 @@
 						<div class="nav-slider-div slider-hidden"></div>
 					</li>
 					<li class="nav-li slider">
-						<a class="a-nav" href="">about me</a>
+						<a class="a-nav" href="#about-me">About me</a>
 						<div class="nav-slider-div slider-hidden"></div>
 					</li>
 					<li class="nav-li slider">
@@ -81,11 +82,26 @@
 				<!-- </div> -->
 			</header>
 
-			<div id="projects" class="snap-start">
+			<div id="navhintfloat"><span></span></div>			
+
+			<div id="projects" class="snap-start sectionMargin">
 				<div class="section">
 					<h5>Projects</h5>
 					<div class="overflow-container">
 						<div class="cardcontainer">
+							<div class="flex-col">
+								<h6>My portfolio</h6>
+								<p>
+									This site ahs been built with my good friend, Kevin Langner, and started in a
+									random Computing lesson before recess in March. 
+									
+								</p>
+								<br>&nbsp
+								<a class="openbutton" href="https://github.com/A-gmaE-programmer/portfolioSite/tree/ansel"
+									target="_blank">
+									<p>Shared Repository</p>
+								</a>
+							</div>
 							<div class="flex-col">
 								<h6>Query System</h6>
 								<p>
@@ -142,25 +158,16 @@
 									<p>Open</p>
 								</a>
 							</div>
-							<div class="flex-col">
-								<h6>My portfolio</h6>
-								<p>
-									Built with my good friend, Kevin Langner, and started in a
-									random Computing lesson before recess in March. 
-									
-								</p>
-								<br>&nbsp
-								<a class="openbutton" href="https://ansel-lee.github.io/portfolio"
-									target="_blank">
-									<p>Open</p>
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div id="achievements" class="snap-start">
+			<div id="about-me" class="snap-start sectionMargin">
+
+			</div>
+
+			<div id="achievements" class="snap-start sectionMargin">
 				<div class="section">
 					<div class="overflow-container">
 						<div class="cardcontainer">
@@ -175,7 +182,7 @@
 				</div>
 			</div>
 
-			<div id="skills" class="snap-start">
+			<div id="skills" class="snap-start sectionMargin">
 				<div class="section">
 					<div class="overflow-container">
 						<h5>Languages</h5>
@@ -200,7 +207,7 @@
 				</div>
 			</div>
 
-			<!--<div id="docs" class="snap-start">
+			<!--<div id="docs" class="snap-start sectionMargin">
 				<div class="section">
 				<h5>Document Links</h5>
 				<p>
