@@ -54,15 +54,32 @@ body.lightmode *:not(.img) {
 	/* color: Crimson; */
 }
 
-#cover-headings {
-	left: calc(-50%);
-	transform: translate(50%, 0);
-	position: relative;
-	text-align: left;
+@media screen and (min-width: 700px) {
+	#cover-headings {
+		left: calc(-50%);
+		transform: translate(50%, 0);
+		position: relative;
+		text-align: left;
+		overflow: wrap;
+	}
+
+	.big-heading {
+		font-size: 250%;
+	}
+
+}
+
+@media screen and (max-width: 700px) {
+	#cover-headings, #cover-headings * {
+		max-width: 100%;
+	}
+
+	.big-heading {
+		font-size: 150%;
+	}
 }
 
 .big-heading {
-	font-size: 250%;
 	/* font-size: 4rem; */
 	font-weight: 400;
 	line-height: 1;
