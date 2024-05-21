@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> Portfolio </title>
+		<title>Ansel's Portfolio </title>
 		<link rel="stylesheet" href="portfolio.css">
 		<script src="portfolio.js"></script>
 		<style id="colors">
@@ -14,6 +14,10 @@
 			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono">
 		<link rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Protest+Revolution">
+		<script>
+				/*to prevent Firefox FOUC, this must be here*/
+				let FF_FOUC_FIX;
+		</script>
 	</head>
 
 	<body class="custom-font" onload="init()"">
@@ -46,7 +50,6 @@
 
 			<!-- Navigation -->
 			<header>
-				<div id="nav-sep"></div>
 				<ol class="nav-list">
 					<li class="slider">
 						<h3 id="nav-header">Navigation</h3>
@@ -57,7 +60,7 @@
 						<div class="nav-slider-div slider-hidden"></div>
 					</li>
 					<li class="nav-li slider">
-						<a class="a-nav" href="#projects">Projects</a>
+						<a class="a-nav" href="#projects" onclick="return false;">Projects</a>
 						<div class="nav-slider-div slider-hidden"></div>
 					</li>
 					<li class="nav-li slider">
@@ -82,7 +85,7 @@
 				<!-- </div> -->
 			</header>
 
-			<div id="navhintfloat"><span></span></div>			
+			<div id="navhintfloat"><span></span></div>
 
 			<div id="projects" class="snap-start sectionMargin">
 				<div class="section">
@@ -92,12 +95,16 @@
 							<div class="flex-col">
 								<h6>My portfolio</h6>
 								<p>
-									This site ahs been built with my good friend, Kevin Langner, and started in a
-									random Computing lesson before recess in March. 
-									
+									After being started in a random computing lesson on a Wednesday,
+									before recess,
+									Kevin Langner and I have worked on this site, (Kevin learnt HTML
+									just to help me with this :D)
+									This is the first time I experimaent with transitions, and
+									do a proper write-up for all my projects.
 								</p>
 								<br>&nbsp
-								<a class="openbutton" href="https://github.com/A-gmaE-programmer/portfolioSite/tree/ansel"
+								<a class="openbutton"
+									href="https://github.com/A-gmaE-programmer/portfolioSite/tree/ansel"
 									target="_blank">
 									<p>Shared Repository</p>
 								</a>
@@ -108,7 +115,8 @@
 									This project was originally built for the ACSBR Science
 									Department to inform students of their shifts, with refernce
 									to their name. Over the years, I have added Sign In With Google
-									and password hashing. With the introduction of AllEars by MOE, this project
+									and password hashing. With the introduction of AllEars by MOE, this
+									project
 									sadly only was used once in 2023.
 								</p>
 								<br>&nbsp
@@ -116,7 +124,8 @@
 									target="_blank">
 									<p>Open</p>
 								</a>
-								<a class="openbutton" href="https://github.com/ansel-lee/ansel-lee.github.io/tree/main/querysystem"
+								<a class="openbutton"
+									href="https://github.com/ansel-lee/ansel-lee.github.io/tree/main/querysystem"
 									target="_blank">
 									<p>Repository</p>
 								</a>
@@ -125,37 +134,73 @@
 								<h6>Homework Lister</h6>
 								<p>
 									My first big web development project! Written in 2021,
-									I listed all the homework, announcements and even a (hardcoded) timetable
-									for my class to refer to there. <br />
-									This is where I learnt that the Github + Google Apps Script + Google Sheets
-									"stack" can run my site for free!
+									I created a one-stop shop for all reminders to my classmates
+									listing, all the homework, announcements and even a (hardcoded)
+									timetable for my class to refer to there. <br />
+									This is where I learnt that the Github + Google Apps Script + Google
+									Sheets "stack" can run my site for free!
 								</p>
-								<br>&nbsp
-								<a class="openbutton" href="https://ansel-lee.github.io/homework-revived"
+								<img src="img/homework-site.PNG" />
+								<br />&nbsp
+								<a class="openbutton"
+									href="https://ansel-lee.github.io/homework-revived"
 									target="_blank">
 									<p>Open</p>
+								</a><a class="openbutton"
+									href="https://github.com/ansel-lee/ansel-lee.github.io/blob/main/homework-revived.html"
+									target="_blank">
+									<p>Repository</p>
 								</a>
 							</div>
-							<div class="flex-col">
+							<div class="flex-col biggerflex">
 								<h6>Leading Robotics CCA VIA</h6>
 								<p>
-									
+									Being the in-charge for my CCA's VIA, I planned and taught 12
+									(unrelated) students basic Spike Prime at MacPherson CC.
+									Despite the percieved difficulty teaching advanced concepts such as
+									line tracing without having them zone out, we pressed on and had a
+									fulfilling time!
+
+									<span class="morebutton nodisp">More...</span>
+									<span class="more"> <br />
+										Curriculum and slides were planned by me (hence the big comic sans)
+										and edited by Daniel. CCA Teachers were impressed,
+										and we managed to engage the learners throughout.
+									</span>
+									<img src="img\vlcsnap-2024-05-21-18h01m28s638.png" />
 								</p>
 								<br>&nbsp
-								<a class="openbutton" href="https://ansel-lee.github.io/querysystem"
+								<a class="openbutton"
+									href="https://docs.google.com/presentation/d/10Sixx4PNaFkWEr2Bp4HMqglnHrp_yVWFarNPphLXByc/edit?usp=sharing"
 									target="_blank">
-									<p>Open</p>
+									<p>Slides (by request only)</p>
 								</a>
 							</div>
 							<div class="flex-col">
 								<h6>Booklist Project</h6>
 								<p>
-									good
+									My last coding project for my school, and my most complicated one yet.
+									Written at the end of 2023, this booklist listing system is specfically
+									programmed to accomodate three different systems. Namely, PG1, 2, 3
+									(Sec 1),
+									Lower Secondary Express, N(A), N(T) (Sec 2) and Upper Secondary Subject
+									Combinations (Sec 3 and Sec 4).
+									<span class="morebutton nodisp">More...</span>
+									<span class="more"><br />It doesn't show the price as my IT department
+										did not want to look like being biased to Pacific Bookstores, and from
+										this project I learnt that in the future I shouldn't use CSS Grid, as
+										merging cells are a pain (if you're curious, you can see the
+										mathematics in the JavaScript file in the Repository).</span>
 								</p>
 								<br>&nbsp
-								<a class="openbutton" href="https://ansel-lee.github.io/querysystem"
+								<a class="openbutton"
+									href="https://ansel-lee.github.io/booklist-project/"
 									target="_blank">
 									<p>Open</p>
+								</a><a class="openbutton"
+									href="https://github.com/ansel-lee/ansel-lee.github.io/tree/main/booklist-project"
+									target="_blank">
+									<p>Repository</p>
 								</a>
 							</div>
 						</div>
@@ -164,12 +209,58 @@
 			</div>
 
 			<div id="about-me" class="snap-start sectionMargin">
+				<div class="section">
+					<h5>About Me</h5>
+					<!--
+						Side left | Side Right
+						img | text
+						text         | img
+
+						mobile:
+						text
+						img
+					-->
+					<div class="sidebyside">
+						<p>
+							I enjoy programming, and thinking of how to solve problems. I find a
+							little bit of troubleshooting entertaining, though just a little
+							too much drives me crazy.
+						</p>
+						<img>
+						<p>
+							Other than coding software, I also enjoy building and coding robots.
+							Having done a little of NXT, EV3, EV3 Classroom and now Spike Prime,
+							oh how times have changed!
+							In 2019, I represented Singapore at the World Robot Olympiad in
+							Hungary. I feel that Robotics is more troubleshooting, keeping
+							your cool, lifting weights (computer and robots) and running back and
+							forth between playfields and workstations.
+							In my freetime during the pandemic, I built a lego lift (destroyed
+							by my little sister).
+						</p>
+						<img>
+						<p>
+							I LOVE playing Cities: Skylines. 
+							And by the way, here's a picture of one of my city's train interchanges.
+						</p>
+						<img>
+						<p>
+							When I'm frustrated with my code/homework, I can be found around my
+							piano (hopefully not screaming at my fingers). I have served in my 
+							school's chapel band, and am going for Grade 5 ABRSM this year.
+						</p>
+						<img>
+						<p></p>
+
+
+					</div>
+				</div>
 
 			</div>
 
 			<div id="achievements" class="snap-start sectionMargin">
 				<div class="section">
-					<div class="overflow-container">
+					<div class="rightscrollcontainer">
 						<div class="cardcontainer">
 							<div>
 								<h6>Nothing here</h6>
@@ -219,7 +310,8 @@
 				</div>
 			</div>-->
 
-			<div id="credits" class="snap-start">Made by Kevin Langner and Ansel Lee</div>
+			<div id="credits" class="snap-start">Made by Kevin Langner and Ansel
+				Lee</div>
 		</div>
 	</body>
 </html>
