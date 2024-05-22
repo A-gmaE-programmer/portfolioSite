@@ -91,184 +91,6 @@ body.lightmode *:not(.img) {
 
 
 /* --- common --- ---------------------------------------- */
-.openbutton {
-	display: inline-block;
-	border: 1px solid white;
-	color: white;
-
-	margin-top: auto;
-	margin-bottom: 10px;
-	border-radius: 5px;
-	width: calc(100% - 6px * 2);
-	font-size: 1.3rem;
-	padding: 8px 8px 8px 0;
-
-	transition-duration: 0.4s;
-}
-
-.openbutton::before {
-	content: "";
-	/* IMPORTANT */
-
-	background-image: url('data:image/svg+xml,%3Csvg width%3D"32" height%3D"32" version%3D"1.1" viewBox%3D"0 0 6.4 6.4" xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%3E%0A %3Cg stroke%3D"%23fff" stroke-width%3D".2"%3E%0A%20 %3Cpath d%3D"m5.6 5.3v-3.4c0-0.84-0.27-1.1-1.1-1.1h-3.4" fill%3D"%23fff0"%2F%3E%0A%20 %3Cpath d%3D"m5.3 1.1-5.2 5.2"%2F%3E%0A %3C%2Fg%3E%0A%3C%2Fsvg%3E%0A');
-	background-repeat: no-repeat;
-
-	position: relative;
-	left: calc(100% - 1em - 5px);
-	padding-right: 1em;
-	background-position: center;
-	background-size: 1em 1em;
-}
-
-.openbutton>p {
-	display: inline;
-	position: relative;
-}
-
-.openbutton:hover {
-	cursor: pointer;
-	background-color: #ddd;
-	background: #360a50;
-}
-
-button:hover {
-	background: #EEE;
-}
-
-button:active {
-	border: 2px inset #EEE;
-}
-
-.morebutton {
-	color: var(--light-light-blue);
-	text-decoration: underline;
-}
-
-.morebutton:hover {
-	color: var(--dark-blue);
-	cursor: pointer;
-	transition: 0.5s;
-}
-
-
-
-/* Programming languages widgets ------------------------------------ */
-.minicontainer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-
-	align-content: flex-start;
-
-	width: inherit;
-	/* height: 6rem; */
-}
-
-.minicontainer>div {
-	height: 2rem;
-	margin: 1rem;
-	padding: 1rem;
-
-	border-radius: 1rem;
-	/* flex: 1 1 max-content; */
-	width: max-content;
-
-	background-color: lightsalmon;
-}
-
-.language-name {
-	color: var(--main-bg-col);
-	margin: auto;
-}
-
-/* --- Cards --- */
-.cardcontainer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: stretch; 
-	align-content: stretch;
-
-	/* width: max-content; */
-	width: 100%;
-	height: 100%;
-}
-
-.cardcontainer>div {
-	border: solid 4px white;
-	background-color: var(--main-bg-col);
-	padding: 2.5rem;
-	margin: 1.5rem;
-	flex: 1 0.5 15rem;
-
-	transition: 0.3s ease-in-out;
-}
-
-.cardcontainer>div:hover {
-	border: double 4px white;
-	box-shadow: 0px 0px 1.5rem 0px rgba(95, 113, 195, 80);
-}
-
-.cardcontainer>div>h6 {
-	margin: 0;
-	padding-bottom: 10px;
-	padding-top: 10px;
-}
-
-.cardcontainer>div>p {
-	color: var(--light-blue);
-	margin: 0;
-	padding: 0;
-}
-
-.sidebyside {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-around;
-	align-items: stretch;
-}
-
-
-
-p.sideleft,
-p.sideright {
-	flex: 1 0.5 50%;
-	/* grow shrink basis */
-}
-
-div.sideleft,
-div.sideright {
-	flex: 1 0 30%;
-	max-height: 200px;
-}
-
-.sidebyside img {
-	position: relative;
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
-	bottom: 0;
-	object-position: bottom;
-}
-
-/* flex col for inside of card */
-.flex-col {
-	display: flex;
-	flex-flow: column nowrap;
-	max-width: calc(100% - 140px);
-}
-
-.flex-col img {
-	margin-top: 10px;
-	object-fit: contain;
-	max-width: 100%;
-}
-
-.flex-col.biggerflex {
-	flex-grow: 1.5;
-}
-
 /* scroll hints */
 .scroll-hint {
 	position: absolute;
@@ -319,17 +141,9 @@ span.bigger {
 	font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-div {
+h1, h2, h3, h4, h5, h6,p , div {
 	color: white;
 }
-
 
 
 /* --- splash cover --- */
@@ -372,7 +186,7 @@ div {
 		top: 0;
 		background-color: rgba(25, 20, 28, 30);
 		z-index: 5;
-		padding: 10px;
+		margin: 10px;
 		border-bottom: 4px solid #000;
 	}
 
@@ -442,9 +256,16 @@ div {
 	}
 }
 
-@media screen and (min-width: 750px) {
-	/* desktop navbar */
+/* override desktop */
+@media screen and (min-width: 1450px) {
+	/* to rank higher on specifi(sh)city */
+	ol.nav-list {
+		margin-left: 75px;
+	}
+}
 
+/* desktop navbar */
+@media screen and (min-width: 750px) {
 	header {
 		position: sticky;
 		height: 0;
@@ -479,22 +300,11 @@ div {
 		position: absolute;
 		width: 2px;
 		height: 200px;
-		top: 48px;
+		top: 52.08px;
 		right: 0;
 		background-color: #fff;
 	}
 
-	.nav-list {
-		/*margin-left: -8vw;*/
-		padding: 24px 24px 24px 24px;
-
-		transition: background 1s;
-		z-index: 20;
-		width: max-content;
-		white-space: nowrap;
-		border-radius: 25px;
-		position: relative;
-	}
 
 	.nav-list>li {
 		padding-left: 40px;
@@ -533,11 +343,11 @@ div {
 		content: '';
 		position: absolute;
 
-		left: -3vw;
+		left: -25vw;
 		top: 4rem;
 
 		height: 2px;
-		width: 6vw;
+		width: 100vw;
 
 		backdrop-filter: blur(200px) brightness(5);
 		clip-path: polygon(evenodd,
@@ -590,23 +400,205 @@ div {
 /* --- Page Sections --- */
 @media screen and (max-width: 750px) {
 	body .section {
-		left: 0vw;
+		padding-left: 0vw;
 	}
 }
 
 .section {
 	position: relative;
-	left: 25vw;
 	/* margin: auto; */
 	height: max(100vh, min-content);
-	padding-bottom: 10rem;
-	padding-top: 1rem;
+	padding: 1rem 0 10rem 25vw;
+}
 
-	width: 100%;
+.openbutton {
+	display: inline-block;
+	border: 1px solid white;
+	color: white;
+
+	margin-top: auto;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	width: calc(100% - 6px * 2);
+	font-size: 1.3rem;
+	padding: 8px 8px 8px 0;
+
+	transition-duration: 0.4s;
+}
+
+.openbutton::before {
+	content: "";
+	/* IMPORTANT */
+
+	background-image: url('data:image/svg+xml,%3Csvg width%3D"32" height%3D"32" version%3D"1.1" viewBox%3D"0 0 6.4 6.4" xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%3E%0A %3Cg stroke%3D"%23fff" stroke-width%3D".2"%3E%0A%20 %3Cpath d%3D"m5.6 5.3v-3.4c0-0.84-0.27-1.1-1.1-1.1h-3.4" fill%3D"%23fff0"%2F%3E%0A%20 %3Cpath d%3D"m5.3 1.1-5.2 5.2"%2F%3E%0A %3C%2Fg%3E%0A%3C%2Fsvg%3E%0A');
+	background-repeat: no-repeat;
+
+	position: relative;
+	left: calc(100% - 1em - 5px);
+	padding-right: 1em;
+	background-position: center;
+	background-size: 1em 1em;
+}
+
+.openbutton>p {
+	display: inline;
+	position: relative;
+}
+
+.openbutton:hover {
+	cursor: pointer;
+	background-color: #ddd;
+	background: #360a50;
+}
+
+button:hover {
+	background: #EEE;
+}
+
+button:active {
+	border: 2px inset #EEE;
+}
+
+.morebutton {
+	color: var(--light-light-blue);
+	text-decoration: underline;
+}
+
+.morebutton:hover {
+	color: var(--dark-blue);
+	cursor: pointer;
+	transition: 0.5s;
 }
 
 
-/* languages */
+/* --- Cards --- */
+.cardcontainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch; 
+	align-content: stretch;
+
+	/* width: max-content; */
+	width: 100%;
+	height: 100%;
+}
+
+.cardcontainer>div {
+	border: solid 4px white;
+	background-color: var(--main-bg-col);
+	padding: 2.5rem;
+	margin: 1.5rem;
+	flex: 1 0.5 20rem;
+
+	transition: 0.3s ease-in-out;
+}
+
+.cardcontainer>div:hover {
+	border: double 4px white;
+	box-shadow: 0px 0px 1.5rem 0px rgba(95, 113, 195, 80);
+}
+
+.cardcontainer>div>h6 {
+	margin: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.cardcontainer>div>p {
+	color: var(--light-blue);
+	margin: 0;
+	padding: 0;
+}
+
+
+/* About me - side by side */
+#about-me {
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+}
+
+.sidebyside {
+	width: 100%;
+}
+
+.onerow {
+	background-color: var(--dark-blue);
+	margin: 10px;
+	border-radius: 10px;
+	padding: 20px;
+	max-width: 100%;
+}
+
+.sidebyside img {
+	width: 100%;
+	height: 200px;
+}
+
+@media screen and (min-width: 800px) {
+	.onerow {
+		display: flex;
+		justify-content: space-between;
+		flex: 1 0.5 50%;
+	}
+
+	.sidebyside .onerow>img {
+		width: min(100%, 50vw);
+	}
+
+
+	.onerow .sideright:first-child {
+		order: 1;
+	}
+
+}
+
+/* flex col for inside of card */
+.flex-col {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.flex-col img {
+	margin-top: 10px;
+	object-fit: contain;
+	max-width: 100%;
+}
+
+.flex-col.biggerflex {
+	flex-grow: 1.5;
+}
+
+
+/* Programming languages widgets ------------------------------------ */
+.minicontainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	align-content: flex-start;
+
+	width: inherit;
+	/* height: 6rem; */
+}
+
+.minicontainer>div {
+	height: 2rem;
+	margin: 1rem;
+	padding: 1rem;
+
+	border-radius: 1rem;
+	/* flex: 1 1 max-content; */
+	width: max-content;
+
+	background-color: lightsalmon;
+}
+
+.language-name {
+	color: var(--main-bg-col);
+	margin: auto;
+}
+
 #languages>div.cardcontainer>div {
 	object-fit: stretch;
 	max-width: 150px;
@@ -647,7 +639,7 @@ div {
 }
 
 
-/* ----------
+/* --- GIMMICKS -----------------------------------------------
    SLIDERS
    Slider text */
 .slider {
