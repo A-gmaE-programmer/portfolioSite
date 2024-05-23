@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6,p , div {
 	background-size: 1em 1em;
 }
 
-.openbutton>p {
+.openbutton>p, .openbutton>div {
 	display: inline;
 	position: relative;
 }
@@ -500,6 +500,11 @@ button:active {
 	height: 100%;
 }
 
+.cardcontainer.rightscroll {
+	overflow-x: auto;
+	flex-wrap: nowrap;
+}
+
 .cardcontainer>div {
 	border: solid 4px white;
 	background-color: var(--main-bg-col);
@@ -537,17 +542,18 @@ button:active {
 	font-size: 1.2rem;
 	line-height: 1.6rem;
 
-	background-color: var(--dark-blue);
 	margin: 20px 10px;
 	border-radius: 10px;
 	padding: 15px;
 	max-width: 100%;
+	transition: background 0.5s;
 }
 
 .onerow img {
 	border-radius: 10px;
 	border: 4px solid black;
 	min-width: 300px;
+	object-fit: cover;
 }
 
 .sidebyside img {
@@ -581,6 +587,11 @@ button:active {
 
 }
 
+#piano img {
+	object-fit: cover;
+	object-position: bottom left;
+}
+
 /* flex col for inside of card */
 .flex-col {
 	display: flex;
@@ -595,6 +606,36 @@ button:active {
 
 .flex-col.biggerflex {
 	flex-grow: 1.5;
+}
+
+/* Achievements */
+#achievements .cardcontainer {
+	background-color: var(--dark-blue);
+}
+
+@media screen and (min-width: 700px) {
+	#achievements .flex-col {
+		max-height: 70vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}
+
+#achievements .flex-col {
+	min-width: min-content;
+}
+
+#achievements .flex-col img {
+	min-width: 250px;
+	border-radius: 8px;
+	border: 4px solid yellow;
+
+	bottom: 0;
+	margin-top: auto;
+}
+
+#achievements .biggerbox {
+	min-width: 300px;
 }
 
 
@@ -660,10 +701,6 @@ button:active {
 .scroll-container>* {
 	/* Dark magic smooth scroll workaround */
 	transition: translate 0.5s ease-in-out;
-}
-
-.rightscrollcontainer {
-	display: flex;
 }
 
 
@@ -749,4 +786,8 @@ button:active {
 		left: calc(100% + 2rem);
 		opacity: 0.5;
 	}
+}
+
+#credits {
+	color: wheat;
 }

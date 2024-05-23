@@ -1,11 +1,11 @@
-
+// Kevin Contributed the top part
 class Toggle {
-    constructor(state, toggleOn=()=>{}, toggleOff=toggleOn) {
+    constructor(state, toggleOn = () => { }, toggleOff = toggleOn) {
         this.state = state;
         this.toggleOn = toggleOn;
         this.toggleOff = toggleOff;
     }
-    update(state=!this.state) {
+    update(state = !this.state) {
         if (state != this.state) {
             if (state) {
                 this.toggleOn();
@@ -107,36 +107,23 @@ function shuffle_colors() {
         "#6EB5FF", "#3E90FF",
         "#85D3AF", "#90EE90"
     ]
+    // https://www.color-hex.com/color-palette/109958
+    let darkercolors = [
+        "#997d84", "#927d99", "#7d8499", "#84997d", "#99927d"
+    ]
     shuffle(colors);
-
-    let head = document.head || document.getElementsByTagName("head")[0];
-    let style;
-    let head_children = head.children;
-    let length = head.childElementCount;
-    
-    for (let i = 0; i < length; i++) {
-        if (head_children[i].id == "colors") {
-            style = head_children[i];
-            let l = style.sheet.cssRules.length;
-            for (let r = 0; r < l && r < colors.length; r++) {
-                style.sheet.cssRules[r].style.backgroundColor = colors[r];
-            }
-        }
+    shuffle(darkercolors);
+    let stylesheet = document.getElementById("colours");
+    let l = stylesheet.sheet.cssRules.length;
+    for (let i=0; i < l; i++) {
+        stylesheet.sheet.cssRules[i].style.backgroundColor = colors[i];
     }
 
-    if (!style) {
-        let colorStyle = "";
-        for (let i = 0; i < colors.length; i++) {
-            colorStyle += ` .colors:nth-child(${i+1}) { background-color: ${colors[i]}; } `;
-        }
-
-        style = document.createElement("style");
-        style.id = "colors";
-        style.appendChild(document.createTextNode(colorStyle));
-        head.appendChild(style);
+    let darkerStyleSheet = document.getElementById("aboutme-tilecolor");
+    let l2 = darkerStyleSheet.sheet.cssRules.length;
+    for (let i2 = 0; i2 < l2; i2++) {
+        darkerStyleSheet.sheet.cssRules[i2].style.backgroundColor = darkercolors[i2];
     }
-
-
 }
 
 // Slider animation
@@ -156,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             console.log("Cover")
         },
-        () => {}
+        () => { }
     );
 
     let nav = document.getElementsByClassName("nav-list")[0];
@@ -170,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 children[i].className = "slider";
             }
         },
-        () => {}
+        () => { }
     );
 
     let cooldown = [-1];
@@ -208,8 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
             child.remove();
         }
     }*/
-    shuffle_colors();
 })
+
+
+// Ansel's code starts here
 
 function shownavbar() {
     document.getElementsByTagName('header')[0].classList.toggle('hidenav')
@@ -255,4 +244,31 @@ function init() {
         })
         currElm.nextElementSibling.classList.add("nodisp");
     }
+
+    // create style sheet for colours
+    let head = document.head || document.getElementsByTagName("head")[0];
+    let colors = [
+        "#EFB5E8", "#EF9CEE", "#B28BFF", "#D5AAFF",
+        "#FFBB44", "#FFE56A", "#FFABAB", "#D35FA0",
+        "#6EB5FF", "#3E90FF", "#85D3AF", "#90EE90"
+    ]
+    let colorStyle = "";
+    for (let i = 0; i < colors.length; i++) {
+        colorStyle += ` .colors:nth-child(${i + 1}) { background-color: ${colors[i]}; } `;
+    }
+    let style = document.createElement("style");
+    style.id = "colours";
+    style.appendChild(document.createTextNode(colorStyle));
+    head.appendChild(style);
+    
+    // https://www.color-hex.com/color-palette/109958
+    let darkercolors = ["#997d84", "#927d99", "#7d8499", "#84997d", "#99927d"]
+    let colorStyle2 = "";
+    for (let i=0; i < darkercolors.length; i++) {
+        colorStyle2 += ` .onerow:nth-child(${i + 1}) { background-color: ${darkercolors[i]}; }`;
+    }
+    let style2 = document.createElement("style");
+    style2.id = "aboutme-tilecolor";
+    style2.appendChild(document.createTextNode(colorStyle2));
+    head.appendChild(style2);
 }
