@@ -214,33 +214,124 @@ button:active {
   padding: 0;
 }
 
+/* About me - side by side */
 .sidebyside {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
+	width: 100%;
 }
 
-p.sideleft,
-p.sideright {
-  flex: 1 0 50%;
-  /* grow shrink basis */
+.onerow {
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+
+	margin: 20px 10px;
+	border-radius: 10px;
+	padding: 15px;
+	max-width: 100%;
+	transition: background 0.5s;
 }
 
-div.sideleft,
-div.sideright {
-  flex: 1 0 30%;
-  max-height: 200px;
+.onerow img {
+	border-radius: 10px;
+	border: 4px solid black;
+	min-width: 300px;
+	object-fit: cover;
 }
 
 .sidebyside img {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  bottom: 0;
-  object-position: bottom;
+	width: 100%;
+	min-height: 200px;
+}
+
+@media screen and (min-width: 800px) {
+	body .onerow {
+		padding: 30px;
+		display: flex;
+		gap: 40px;
+		justify-content: space-between;
+		align-items: stretch;
+		flex: 1 0.5 50%;
+	}
+
+	.onerow p {
+		margin: 0;
+	}
+
+	.sidebyside .onerow>img {
+		width: min(100%, 50vw);
+	}
+
+
+
+	.onerow .sideright:first-child {
+		order: 1;
+	}
+
+}
+
+/* flex col for inside of card */
+.flex-col {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.flex-col img {
+	margin-top: 10px;
+	object-fit: contain;
+	max-width: 100%;
+}
+
+.flex-col.biggerflex {
+	flex-grow: 1.5;
+}
+
+/* Achievements */
+#achievements .achievementfill {
+	background-color: var(--dark-blue);
+}
+
+#achievements .achievementfill {
+	overflow-x: scroll;
+}
+
+.achievementfill>.rscrollhint {
+	padding-top: 10px;
+	float: right;
+	height: 80px;
+}
+
+@media screen and (min-width: 700px) {
+	#achievements .flex-col {
+		overflow-x: hidden;
+	}
+}
+
+#achievements .flex-col {
+	width: max-content;
+	min-width: 275px;
+}
+
+#achievements .flex-col p {
+	font-size: 1.3rem;
+	line-height: 1.6rem;
+	padding-bottom: 10px;
+}
+
+#achievements .flex-col img {
+	min-width: 250px;
+	border-radius: 8px;
+	border: 4px solid yellow;
+
+	bottom: 0;
+	margin-top: auto;
+}
+
+#achievements .biggerbox, .textspace {
+	min-width: 350px;
+}
+
+#achievements .textspace+img {
+	min-width: 0;
+	width: 240px;
 }
 
 /* flex col for inside of card */
