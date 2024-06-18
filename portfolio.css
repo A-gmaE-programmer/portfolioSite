@@ -3,6 +3,8 @@
 :root {
   /* --main-bg-col: #150323; */
   --main-bg-col: #19141c;
+  /* ADDED: for my sanity and for the more button fake hyperlink */
+  --light-light-blue: #62a1f7;
   --light-blue: #3271e7;
   --dark-blue: #1858cd;
 }
@@ -54,15 +56,35 @@ body.lightmode *:not(.img) {
   /* color: Crimson; */
 }
 
-#cover-headings {
-  left: calc(-50%);
-  transform: translate(50%, 0);
-  position: relative;
-  text-align: left;
+/* normal behaviour for computers */
+@media screen and (min-width: 700px) {
+  #cover-headings {
+    left: calc(-50%);
+    transform: translate(50%, 0);
+    position: relative;
+    text-align: left;
+    overflow: wrap;
+  }
+
+  .big-heading {
+    font-size: 250%;
+  }
+
+}
+
+/* make sure your name is visible on mobile devices */
+@media screen and (max-width: 700px) {
+  #cover-headings,
+  #cover-headings * {
+    max-width: 100%;
+  }
+
+  .big-heading {
+    font-size: 150%;
+  }
 }
 
 .big-heading {
-  font-size: 250%;
   /* font-size: 4rem; */
   font-weight: 400;
   line-height: 1;
@@ -91,13 +113,17 @@ button {
 
 .openbutton {
   color: white;
-  border-radius: 5px;
-  padding: 5px;
   display: inline-block;
   border: 1px solid white;
-  width: calc(100% - 6px * 2);
 
   margin-top: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: calc(100% - 6px * 2);
+  font-size: 1.3rem;
+  padding: 8px 8px 8px 0;
+  /* more space between letters and outline
+  (personal preference)*/
 
   transition-duration: 0.4s;
 }
@@ -111,18 +137,14 @@ button {
 
   position: relative;
   left: calc(100% - 1em - 5px);
-  /* padding-right:                    calc(0.75em + 0.375rem); */
-  padding-right:                    1em;
+  padding-right: 1em;
   background-position: center;
-  /* background-size:                  calc(0.75em + 0.375rem)  */
-                                    /* calc(0.75em + 0.375rem); */
   background-size: 1em 1em;
 }
 
-.openbutton > p {
+.openbutton > p, .openbutton > div {
   display: inline;
   position: relative;
-  left: -1em;
 }
 
 .openbutton:hover {
@@ -137,6 +159,19 @@ button:hover {
 
 button:active {
   border: 2px inset #EEE;
+}
+
+/* ADDED: used spans to simulate a hyperlink click
+  and js shows more text */
+.morebutton {
+  color: var(--light-light-blue);
+  text-decoration: underline;
+}
+
+.morebutton:hover {
+  color: var(--dark-blue);
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 /* Programming languages widgets */
@@ -173,7 +208,7 @@ button:active {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-items: stretch; */
+  align-items: stretch; 
   align-content: stretch;
 
   /* width: max-content; */
@@ -181,16 +216,23 @@ button:active {
   height: 100%;
 }
 
+/* ADDED: Right scrolling div, used for my achievements */
+.cardcontainer.rightscroll {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+#achievements .cardcontainer.rightscroll {
+  overflow-x: visible;
+  height: 100%
+}
+
 .cardcontainer>div {
-  /* border-radius: 1rem; */
-  /* background: linear-gradient(49deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%); */
   border: solid 4px white;
   background-color: var(--main-bg-col);
   padding: 2.5rem;
   margin: 1.5rem;
-  /* min-width: 30rem; */
-
-  flex: 1 1 19rem;
+  flex: 1 0.5 20rem;
 
   transition: 0.3s ease-in-out;
 }
@@ -198,8 +240,6 @@ button:active {
 .cardcontainer>div:hover {
   border: double 4px white;
   box-shadow: 0px 0px 1.5rem 0px rgba(95, 113, 195, 80);
-  /* background: linear-gradient(49deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%), rgba(0, 0, 0, 0.8); */
-  /* background-blend-mode: multiply; */
 }
 
 .cardcontainer>div>h6 {
@@ -216,122 +256,56 @@ button:active {
 
 /* About me - side by side */
 .sidebyside {
-	width: 100%;
+  width: 100%;
 }
 
 .onerow {
-	font-size: 1.2rem;
-	line-height: 1.6rem;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
 
-	margin: 20px 10px;
-	border-radius: 10px;
-	padding: 15px;
-	max-width: 100%;
-	transition: background 0.5s;
+  margin: 20px 10px;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 100%;
+  transition: background 0.5s;
 }
 
 .onerow img {
-	border-radius: 10px;
-	border: 4px solid black;
-	min-width: 300px;
-	object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid black;
+  min-width: 300px;
+  object-fit: cover;
 }
 
 .sidebyside img {
-	width: 100%;
-	min-height: 200px;
+  width: 100%;
+  min-height: 200px;
 }
 
 @media screen and (min-width: 800px) {
-	body .onerow {
-		padding: 30px;
-		display: flex;
-		gap: 40px;
-		justify-content: space-between;
-		align-items: stretch;
-		flex: 1 0.5 50%;
-	}
+  body .onerow {
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: stretch;
+    flex: 1 0.5 50%;
+  }
 
-	.onerow p {
-		margin: 0;
-	}
+  .onerow p {
+    margin: 0;
+  }
 
-	.sidebyside .onerow>img {
-		width: min(100%, 50vw);
-	}
+  .sidebyside .onerow>img {
+    width: min(100%, 50vw);
+  }
 
 
 
-	.onerow .sideright:first-child {
-		order: 1;
-	}
+  .onerow .sideright:first-child {
+    order: 1;
+  }
 
-}
-
-/* flex col for inside of card */
-.flex-col {
-	display: flex;
-	flex-flow: column nowrap;
-}
-
-.flex-col img {
-	margin-top: 10px;
-	object-fit: contain;
-	max-width: 100%;
-}
-
-.flex-col.biggerflex {
-	flex-grow: 1.5;
-}
-
-/* Achievements */
-#achievements .achievementfill {
-	background-color: var(--dark-blue);
-}
-
-#achievements .achievementfill {
-	overflow-x: scroll;
-}
-
-.achievementfill>.rscrollhint {
-	padding-top: 10px;
-	float: right;
-	height: 80px;
-}
-
-@media screen and (min-width: 700px) {
-	#achievements .flex-col {
-		overflow-x: hidden;
-	}
-}
-
-#achievements .flex-col {
-	width: max-content;
-	min-width: 275px;
-}
-
-#achievements .flex-col p {
-	font-size: 1.3rem;
-	line-height: 1.6rem;
-	padding-bottom: 10px;
-}
-
-#achievements .flex-col img {
-	min-width: 250px;
-	border-radius: 8px;
-	border: 4px solid yellow;
-
-	bottom: 0;
-	margin-top: auto;
-}
-
-#achievements .biggerbox, .textspace {
-	min-width: 350px;
-}
-
-#achievements .textspace+img {
-	min-width: 0;
-	width: 240px;
 }
 
 /* flex col for inside of card */
@@ -340,10 +314,71 @@ button:active {
   flex-flow: column nowrap;
 }
 
+.flex-col img {
+  margin-top: 10px;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.flex-col.biggerflex {
+  flex-grow: 1.5;
+}
+
+/* Achievements */
+#achievements .achievementfill {
+  background-color: var(--dark-blue);
+}
+
+#achievements .achievementfill {
+  overflow-x: scroll;
+}
+
+.achievementfill>.rscrollhint {
+  padding-top: 10px;
+  float: right;
+  height: 80px;
+}
+
+@media screen and (min-width: 700px) {
+  #achievements .flex-col {
+    overflow-x: hidden;
+  }
+}
+
+#achievements .flex-col {
+  width: max-content;
+  min-width: 275px;
+}
+
+#achievements .flex-col p {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  padding-bottom: 10px;
+}
+
+#achievements .flex-col img {
+  min-width: 250px;
+  border-radius: 8px;
+  border: 4px solid yellow;
+
+  bottom: 0;
+  margin-top: auto;
+}
+
+#achievements .biggerbox, .textspace {
+  min-width: 350px;
+}
+
+#achievements .textspace+img {
+  min-width: 0;
+  width: 240px;
+}
+
+
 /* scroll hints */
 .scroll-hint {
   position: absolute;
-  top: 95vh;
+  top: 90vh;
   left: 50%;
   transform: translate(-50%, 0);
   width: 10vh;
@@ -382,7 +417,6 @@ body {
   /* background-color: #000; */
   /* background-color: #1b042b; */
   background-color: var(--main-bg-col);
-  color: black;
 }
 
 h6,
@@ -391,22 +425,23 @@ span.bigger {
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6/*, p, div*/ {
   color: white;
 }
 
 
-
 /* --- splash cover --- */
 #cover {
-  height: 100vh;
+  /* ADDED: my version isn't full height so some content is visible
+  (personal preference)*/
+  height: 96vh;
   width: 100vw;
   max-width: 100%;
   /*if it works it works*/
   text-align: center;
   background-image: url("img/planet2.png");
   background-blend-mode: hard-light;
-  background-color: #666;
+  background-color: #667;
   /* background-color: rgba(127, 127, 127, 1); */
   background-size: cover;
 }
@@ -424,9 +459,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* --- navigation --- */
+/* ADDED: nothing. I find my own code very verbose,
+  so I didn't update it here. Your implementation might 
+  be better than mine */
 .nav-list {
   list-style-type: none;
   text-align: left;
+  width: max-content;
 }
 
 @media screen and (max-width: 700px) {
@@ -547,10 +586,25 @@ button.a-nav:active {
 /* Main Page */
 
 /* --- Page Sections --- */
+@media screen and (max-width: 1050px) {
+  body .section {
+    padding-left: 0vw;
+  }
+}
+
+.section {
+  position: relative;
+  padding: 1rem 0 10rem 25vw;
+}
+
+.section h5, .section>p {
+  padding-left: 20px;
+}
+/*
 .section {
   position: relative;
   left: 25vw;
-  /* margin: auto; */
+  /* margin: auto; * /
   height: max(100vh, min-content);
   padding-bottom: 10rem;
   padding-top: 1rem;
@@ -578,11 +632,11 @@ button.a-nav:active {
     0%     2px,
     0%     0%
 
-    /* 40% 0%, */
-    /* 100% 0%, */
-    /* 100% 100%, */
-    /* 40% 100%, */
-    /* 40% 0% */
+    /* 40% 0%, * /
+    /* 100% 0%, * /
+    /* 100% 100%, * /
+    /* 40% 100%, * /
+    /* 40% 0% * /
 
     );
 }
@@ -600,13 +654,15 @@ main {
   width: min(900px, calc(100vw - 200px));
   margin: auto;
 }
+*/
 
 
-/* languages */
+/* languages * /
 #languages>div.cardcontainer>div {
   object-fit: stretch;
   max-width: 150px;
 }
+  */
 
 
 @media screen and (max-width: 1200px) {
@@ -617,10 +673,11 @@ main {
 
 
 
-/* Scroll Snap */
+/* Scroll Snap * /
 .snap-start {
   scroll-snap-align: start;
 }
+*/
 
 .scroll-container {
   position: relative;
@@ -667,6 +724,7 @@ main {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -676,10 +734,12 @@ main {
   0% {
     width: 0px;
   }
+
   50% {
     width: calc(100% - 8rem);
     left: 4rem
   }
+
   100% {
     width: 0px;
     left: calc(100% + 4rem);
@@ -703,11 +763,13 @@ main {
     width: 0px;
     opacity: 0;
   }
+
   40% {
     width: calc(100%);
     left: 2rem;
     opacity: 1;
   }
+
   100% {
     width: 0px;
     left: calc(100% + 2rem);
@@ -715,3 +777,27 @@ main {
   }
 }
 
+/* ADDED: Contact tiles and credits styling */
+.contactcard {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+  border: 2px solid white;
+  display: inline-block;
+}
+
+.contactcard:hover {
+  cursor: pointer;
+  border: 2px solid yellow;
+}
+
+.contactcard img {
+  width: 32px;
+}
+
+#credits {
+  color: wheat;
+}
